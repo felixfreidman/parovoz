@@ -25,7 +25,7 @@ const posthtml = require("gulp-posthtml");
 const include = require("posthtml-include");
 
 // Styles
-const sass = require("gulp-sass");
+const sass = require("gulp-sass")(require('sass'));
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const minify = require("gulp-csso");

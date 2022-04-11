@@ -27,7 +27,7 @@
         "gulp-postcss": "^8.0.0",
         "gulp-posthtml": "^3.0.4",
         "gulp-rename": "^1.2.2",
-        "gulp-sass": "^4.0.2",
+        "gulp-sass": "^5.1.0",
         "gulp-sourcemaps": "^2.6.5",
         "gulp-svgstore": "^7.0.1",
         "gulp-uglify": "^3.0.2",
@@ -40,12 +40,13 @@
         "vinyl-buffer": "^1.0.1"
     },
     "dependencies": {
+        "@fancyapps/fancybox": "3.5.2",
+        "aos": "^2.3.4",
+        "inputmask": "5.0.7",
         "jquery": "^3.4.1",
         "jquery-mask-plugin": "^1.14.16",
-        "swiper": "^4.5.0",
-        "@fancyapps/fancybox": "3.5.2",
         "jquery-ui": "^1.13.0",
-        "aos": "^2.3.4",
-        "inputmask": "5.0.7"
+        "sass": "^1.50.0",
+        "swiper": "^4.5.0"
     }
 }
