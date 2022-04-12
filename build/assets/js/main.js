@@ -1,29 +1,22 @@
-//   $('#btn-menu-mob').click(function(e) {
-//       e.preventDefault();
-//       $('.header__svg-mob').addClass('is-active');
-//       $('#menu-mobile').animate({ 
-//         right: '0px' 
-//         }, 300);
-//       $('#menu-mobile').animate({ 
-//         right: '0px' 
-//         }, 300);
-//     $('body').css('overflow', 'hidden');
-//     $('.page').animate({ 
-//         right: '190px' 
-//     }, 200); 
-// });
-// $('.menu-mobile__svg-close').click(function(e) {
-//     e.preventDefault();
-//     $('.header__svg-mob').removeClass('is-active');
-//     $('#menu-mobile').animate({ 
-//       right: '-207px' 
-//   }, 300);
-//   $('body').css('overflow', 'auto');
-//   $('.page').animate({ 
-//       right: '0px' 
-//   }, 200); 
-// });
-// // header-swiper
+"use strict";
+
+if (document.querySelector(".article-card")) {
+  var cardsArray = document.querySelectorAll(".article-card");
+  cardsArray.forEach(function (card) {
+    card.addEventListener("mouseover", function () {
+      var background = card.style.background;
+      background = background.replace("linear-gradient(360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%)", "linear-gradient( 360deg, rgba(212, 37, 21, 0.8) 0%, rgba(212, 37, 21, 0) 100%)");
+      card.style.background = background;
+    });
+    card.addEventListener("mouseout", function () {
+      console.log("true");
+      var background = card.style.background;
+      console.log(background);
+      background = background.replace("linear-gradient(360deg, rgba(212, 37, 21, 0.8) 0%, rgba(212, 37, 21, 0) 100%)", "linear-gradient(360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%)");
+      card.style.background = background;
+    });
+  });
+} // // header-swiper
 // var swiper = new Swiper('#main-swiper', {
 //   fadeEffect: {
 //     crossFade: true
@@ -49,4 +42,3 @@
 //   watchVisibility: true,
 //   disableOnInteraction: true,
 // });
-"use strict";
