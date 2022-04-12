@@ -1,0 +1,73 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="shortcut icon", href="./assets/images/content/favicon.png", type="image/x-icon")
+        link(rel="stylesheet", href="./style.min.css")
+        title Товары
+    body.staff-body 
+        include ./header.pug
+        main.main.main-staff
+            .breadcrumbs Главная / Товары 
+            .header-container
+                .header 
+                    | Товары с символикой 
+                    strong ПАРОВОЗ
+                .header-bar
+            .section 
+                .section__header-container 
+                    .header Текстиль
+                    .amount 5 товаров
+                .staff-container
+                    .container-card(style="background: linear-gradient( 360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/staff_cloth1.png)")
+                        .container-card__name Банная шапка ПАРОВОЗ
+                        .container-card__price 5 800 ₽
+                    .container-card(style="background: linear-gradient( 360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/staff_cloth2.png)") 
+                        .container-card__name Халат ПАРОВОЗ
+                        .container-card__price 5 800 ₽
+                    .container-card(style="background: linear-gradient( 360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/staff_cloth3.png)")
+                        .container-card__name Банный набор ПАРАВОЗ
+                        .container-card__price 5 800 ₽
+                    .container-card(style="background: linear-gradient( 360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/staff_cloth4.png)") 
+                        .container-card__name Килт детский
+                        .container-card__price 5 800 ₽
+                    .container-card(style="background: linear-gradient( 360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/staff_cloth5.png)") 
+                        .container-card__name Коврик хлопковый
+                        .container-card__price 5 800 ₽
+                    .container-card(style="background: linear-gradient( 360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/staff_cloth6.png)") 
+                        .container-card__name Коврик хлопковый
+                        .container-card__price 5 800 ₽
+            .section 
+                .section__header-container 
+                    .header Аромотерапия
+                    .amount 3 товара
+                .staff-container
+                    .container-card(style="background: linear-gradient( 360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/staff_aroma1.png)") 
+                        .container-card__name Гималайская соль для бани
+                        .container-card__price 5 800 ₽
+                    .container-card(style="background: linear-gradient( 360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/staff_aroma2.png)") 
+                        .container-card__name Чайное дерево - эфирное масло
+                        .container-card__price 5 800 ₽
+                    .container-card(style="background: linear-gradient( 360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/staff_aroma3.png)") 
+                        .container-card__name Сандаловое дерево - эфирное масло
+                        .container-card__price 5 800 ₽
+            .section 
+                .section__header-container 
+                    .header Веники для бани
+                    .amount 4 товара
+                .staff-container 
+                    .container-card(style="background: linear-gradient( 360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/staff_plant1.png)") 
+                        .container-card__name Веник дубовый
+                        .container-card__price 280 ₽
+                    .container-card(style="background: linear-gradient( 360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/staff_plant2.png)") 
+                        .container-card__name Веник дубовый
+                        .container-card__price 350 ₽
+                    .container-card(style="background: linear-gradient( 360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/staff_plant3.png)") 
+                        .container-card__name Веник из черемухи
+                        .container-card__price 230 ₽
+                    .container-card(style="background: linear-gradient( 360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/staff_plant4.png)") 
+                        .container-card__name Веник дубовый
+                        .container-card__price 400 ₽
+
+        include ./footer.pug
