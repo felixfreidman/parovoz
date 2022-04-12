@@ -1,23 +1,5 @@
 .main {
     overflow-x: hidden;
-}
-
-.staff-body:before {
-    content: url(./assets/images/content/vapor.png);
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
-.main-staff {
-    width: calc(100% - 280px);
-    padding: 97px 140px 17px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
     .breadcrumbs {
         font-weight: 400;
         font-size: 14px;
@@ -48,6 +30,24 @@
             height: 4px;
         }
     }
+}
+
+.staff-body:before {
+    content: url(./assets/images/content/vapor.png);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.main-staff {
+    width: calc(100% - 280px);
+    padding: 97px 140px 17px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
     .section {
         display: flex;
         flex-direction: column;
