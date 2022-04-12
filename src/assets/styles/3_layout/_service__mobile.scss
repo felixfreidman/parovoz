@@ -1,0 +1,130 @@
+@media screen and (max-width: 1450px) {
+    .main-service {
+        .main__breadcrumbs {
+            left: 100px;
+            top: 16px;
+        }
+        .main__container {
+            .container__service-name {
+                .name-container {
+                    margin-left: 100px;
+                    .service-header {}
+                    .container-bar {}
+                }
+                .service-data-container {
+                    margin-right: 100px;
+                    .service-data__price-container {}
+                }
+            }
+            .container__description {
+                width: calc(100% - 200px);
+                padding: 58px 100px 96px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .main-service {
+        .main__container {
+            .container__service-name {
+                .row {}
+                .name-container {
+                    .service-header {
+                        font-weight: 700;
+                        font-size: 36px;
+                        line-height: 54px;
+                        color: #fff;
+                    }
+                    .container-bar {
+                        width: 312px;
+                        height: 4px;
+                        background: linear-gradient( 90deg, #ff0004 0%, rgba(255, 0, 4, 0) 99.23%);
+                        margin-top: 32px;
+                    }
+                }
+                .service-data-container {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: start;
+                    margin-right: 100px;
+                }
+            }
+            .container__description {
+                overflow-x: hidden;
+                width: calc(100% - 200px);
+                padding: 58px 100px 96px 100px;
+                .description-header {
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 20px;
+                    color: #fff;
+                    margin-bottom: 12px;
+                }
+                .description-content {
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 20px;
+                    margin-bottom: 90px;
+                    max-width: 648px;
+                }
+                .description__information-container {
+                    display: flex;
+                    align-items: start;
+                }
+                .information-container__column {
+                    display: flex;
+                    align-items: start;
+                    margin-right: 80px;
+                    .information-container__logo {
+                        width: 40px;
+                        height: 40px;
+                        margin-right: 16px;
+                    }
+                    .information-container__info {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    .information-container__header {
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 17px;
+                        color: #919fa7;
+                        margin-bottom: 8px;
+                    }
+                    .information-container__list {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: start;
+                        list-style: none;
+                    }
+                    .information-container__item {
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 20px;
+                        color: #ffffff;
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .main-service {
+        .main__container {
+            .container__service-name {
+                .row {}
+                .name-container {
+                    .service-header {
+                        font-weight: 700;
+                        font-size: 32px;
+                        line-height: 38px;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}

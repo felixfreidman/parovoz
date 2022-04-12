@@ -10,24 +10,25 @@ html(lang="en")
     body 
         include ./header.pug
         main.main.main-service
-            .main__breadcrumbs 
+            .main__breadcrumbs Главная / Услуги/Авторское парение “Стандарт”
             .main__container
                 .container__service-name 
-                    .name-container
-                        .service-header Авторское парение “Стандарт”
-                        .container-bar 
-                    .service-data-container 
-                        .service-data__price-container 
-                            .price-tag 5 800
-                            .price-currency ₽/
-                            .price-time час
-                        .service-data__book-btn.apply-btn Забронировать
+                    .row
+                        .name-container
+                            .service-header Авторское парение “Стандарт”
+                            .container-bar 
+                        .service-data-container 
+                            .service-data__price-container 
+                                .price-tag 5 800
+                                .price-currency ₽
+                                .price-time /час
+                            .service-data__book-btn.apply-btn Забронировать
                 .container__description
-                    .description-header 
-                    .description-content 
+                    .description-header Описание
+                    .description-content Насыщенная и разнообразная программа, рассчитана на самых искушенных ценителей бани. Мастер индивидуально для гостя под бирает и проводит банный ритуал, с применением различных техник про грева, контраста и массажа
                     .description__information-container 
                         .information-container__column 
-                            .information-container__logo 
+                            .information-container__logo.first-column 
                             .information-container__text-info 
                                 .information-container__header Реквизит
                                 ul.information-container__list
@@ -36,13 +37,13 @@ html(lang="en")
                                     li.information-container__item Дубовый х 2
                                     li.information-container__item Эквалипт х 2
                         .information-container__column 
-                            .information-container__logo 
+                            .information-container__logo.second-column  
                             .information-container__text-info 
                                 .information-container__header Мастер
                                 ul.information-container__list
                                     li.information-container__item 1 мастер
                         .information-container__column 
-                            .information-container__logo 
+                            .information-container__logo.third-column  
                             .information-container__text-info 
                                 .information-container__header Время процедуры
                                 ul.information-container__list
