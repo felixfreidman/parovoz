@@ -1,0 +1,101 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="shortcut icon", href="./assets/images/content/favicon.png", type="image/x-icon")
+        link(rel="stylesheet", href="./style.min.css")
+        title Товары
+    body
+        include ./header.pug
+        main.main.main-book
+            .header-container
+                .header Бронирование
+                .header-bar
+            form.form-book
+                .contact-section 
+                    .section-header Контактные данные
+                    label(for="userName").form-label.form-label--big ФИО
+                        input#userName(type="text", name="userName", placeholder="Ваше имя").form-input
+                    .section-row
+                        label(for="userPhone").form-label.form-label--small  Телефон
+                            input#userPhone(type="text", name="userPhone", placeholder="Ваш телефон").form-input
+                        label(for="userEmail").form-label.form-label--small E-mail
+                            input#userEmail(type="text", name="userEmail", placeholder="Ваша почта").form-input
+                .book-section
+                    .section-header Ваше Бронирование
+                    .order-list
+                        .order-item
+                            .order-item__name#orderPlaceName 
+                                | Тариф, Станция “Уральская”,
+                                span#orderTime  3 часа
+                            .order-item__bar 
+                            .order-item__price#orderPlacePrice  
+                                | 2 990 
+                                span ₽
+                        .order-item
+                            .order-item__name#orderServiceName Парение “Стандарт”
+                            .order-item__bar 
+                            .order-item__price#orderServicePrice  
+                                | 990 
+                                span ₽
+                    .order-total 
+                        .order-total__name Итого
+                        .order-total__bar 
+                        .order-total__price#orderTotalPrice 
+                            | 990 
+                            span ₽ 
+                    button(type="submit").order-button Подтвердить
+            .orders-container 
+                .section-header Формирование заказа
+                .order-container.order-place 
+                    .cross 
+                        .cross-one 
+                        .cross-two
+                    .order-row
+                        .order-image
+                            img(src="./assets/images/content/article_bg1.png", alt="")
+                        .order-info
+                            .order-header Баня Уральская
+                            .order-cost 1 200 ₽ / час
+                    .order-row 
+                        label(for="orderDate").order-label Дата посещения 
+                            input#orderDate(type="date", name="orderDate").order-input
+                        label(for="orderDateTime").order-label Время
+                            select#orderDateTime(name="orderDateTime").order-input 
+                                option(value="10:00") 10:00
+                                option(value="11:00") 11:00
+                                option(value="12:00") 12:00
+                                option(value="13:00") 13:00
+                                option(value="14:00") 14:00
+                                option(value="15:00") 15:00
+                                option(value="16:00") 16:00
+                                option(value="17:00") 17:00
+                                option(value="18:00") 18:00
+                                option(value="19:00") 19:00
+                                option(value="20:00") 20:00
+                                option(value="21:00") 21:00
+                                option(value="22:00") 22:00
+                                option(value="23:00") 23:00
+                                option(value="24:00") 24:00 
+                        label(for="orderAmountPeople").order-label Кол-во человек
+                            input#orderAmountPeople(type="input", name="orderAmountPeople", value = "3").order-input
+                        label(for="orderTotalTime").order-label Кол-во часов
+                            input#orderTotalTime(type="input", name="orderTotalTime", value = "2").order-input
+                        
+                        
+                .order-container.order-service 
+                    .cross 
+                        .cross-one 
+                        .cross-two
+                    .order-row 
+                        .order-info
+                            .order-header Парение “Стандарт”
+                            .order-cost 990 ₽ / час
+                    .order-content 
+                        .content-header Описание
+                        .content-description 
+                            div Насыщенная и разнообразная программа, рассчитана на самых искушенных ценителей бани.
+                            div Мастер индивидуально для гостя под бирает и проводит банный ритуал, с применением различных техник про грева, контраста и массажа
+        include ./footer.pug
+        script(src="./assets/js/main.min.js")

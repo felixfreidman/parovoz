@@ -14,6 +14,10 @@ if (document.querySelector(".article-card")) {
       card.style.background = background;
     });
   });
+}
+
+if (document.getElementById("orderDate")) {
+  document.getElementById('orderDate').valueAsDate = new Date();
 } // // header-swiper
 // var swiper = new Swiper('#main-swiper', {
 //   fadeEffect: {

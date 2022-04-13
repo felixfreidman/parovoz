@@ -19,3 +19,7 @@ if (document.querySelector(".article-card")) {
     });
   });
 }
+if (document.getElementById("orderDate")) {
+
+document.getElementById('orderDate').valueAsDate = new Date();
+}

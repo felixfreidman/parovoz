@@ -1,0 +1,19 @@
+@media screen and (max-width: 1450px) {
+    .main-book {
+        width: calc(100% - 200px);
+        padding: 97px 100px 17px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+
+        .form-book {
+
+            .book-section {
+                top: 97px;
+                right: 100px;
+                position: absolute;
+            }
+        }
+    }
+}
