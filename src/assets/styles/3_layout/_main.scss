@@ -6,14 +6,17 @@
     display: flex;
     align-items: start;
     justify-content: space-between;
+
     .footer-logo {
         margin-right: 150px;
     }
+
     .footer-column {
         margin-right: 90px;
         display: flex;
         flex-direction: column;
         align-items: start;
+
         .footer-header {
             font-weight: 700;
             font-size: 14px;
@@ -21,6 +24,7 @@
             color: #ffffff;
             margin-bottom: 12px;
         }
+
         .footer-link {
             font-weight: 400;
             font-size: 14px;
@@ -28,9 +32,11 @@
             color: #919fa7;
             margin-bottom: 12px;
             transition: all 0.3s ease;
+
             &:hover {
                 color: #d42515;
             }
+
             &--bold {
                 font-weight: 700;
                 font-size: 14px;
@@ -38,24 +44,29 @@
                 color: #ffffff;
                 margin-bottom: 24px;
                 transition: all 0.3s ease;
+
                 &:hover {
                     color: #d42515;
                 }
             }
         }
+
         &:last-child {
             margin-right: 150px;
         }
     }
+
     .footer-container {
         display: flex;
         align-items: start;
         flex-direction: column;
+
         .footer-contacts {
             display: flex;
             flex-direction: column;
             align-items: start;
             margin-bottom: 36px;
+
             a {
                 font-weight: 700;
                 font-size: 20px;
@@ -63,28 +74,33 @@
                 color: #ffffff;
                 margin-bottom: 12px;
                 transition: all 0.3s ease;
+
                 &:hover {
                     color: #d42515;
                 }
             }
         }
+
         .footer-adresses {
             display: flex;
             flex-direction: column;
             align-items: start;
             margin-bottom: 40px;
+
             .footer-adress {
                 font-weight: 700;
                 font-size: 14px;
                 line-height: 17px;
                 color: #ffffff;
                 transition: all 0.3s ease;
+
                 &:hover {
                     color: #d42515;
                     cursor: pointer;
                 }
             }
         }
+
         .footer-button {
             font-weight: 600;
             font-size: 16px;
@@ -97,14 +113,17 @@
             margin-bottom: 32px;
             padding: 14px 24px;
             transition: all 0.3s ease;
+
             &:hover {
                 transform: scale(1.1);
                 cursor: pointer;
             }
         }
+
         .footer-socials {
             display: flex;
             align-items: center;
+
             .social {
                 width: 44px;
                 height: 44px;
@@ -115,12 +134,14 @@
                 justify-content: center;
                 margin-right: 12px;
                 transition: all 0.3s ease;
+
                 &:hover {
                     background-color: #d42515;
                     cursor: pointer;
                 }
             }
         }
+
         &__header {
             font-weight: 400;
             font-size: 14px;
@@ -136,6 +157,8 @@
     width: calc(100% - 280px);
     display: flex;
     justify-content: space-between;
+    background-color: #1a2f44;
+
     .company-name,
     .company-developer {
         font-weight: 400;
@@ -143,6 +166,7 @@
         line-height: 17px;
         color: #919fa7;
         transition: all 0.3s ease;
+
         &:hover {
             color: #d42515;
             cursor: pointer;

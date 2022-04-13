@@ -1,0 +1,10 @@
+@media screen and (max-width: 1450px) {
+    .main-contact {
+        width: calc(100% - 200px);
+        padding: 97px 100px 17px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+}

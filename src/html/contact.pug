@@ -1,0 +1,41 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="shortcut icon", href="./assets/images/content/favicon.png", type="image/x-icon")
+        link(rel="stylesheet", href="./style.min.css")
+        <script src="https://api-maps.yandex.ru/2.1/?apikey=db32f154-f5b8-442a-bb04-5f55f07bbae7&lang=ru_RU" type="text/javascript">
+    </script>
+
+        title Контакты
+    body.staff-body
+        include ./header.pug
+        main.main.main-contact
+            .breadcrumbs Главная / Контакты 
+            .header-container
+                .header Контакты
+                .header-bar
+            .contact-container 
+                .contact-column 
+                    .column-header Адреса
+                    .column-adress г. Екатеринбург, ул. Летняя, 20
+                    .column-caption Ежедневно, круглосуточно
+                .contact-column 
+                    .column-header Телефон
+                    a(href="tel:#").column-link + 7 982 694 85 35
+                    a(href="tel:#").column-link + 7 982 694 85 35
+                .contact-column 
+                    .column-header Социальные сети
+                    .social-container 
+                        .social-circle 
+                            img(src="./assets/images/content/instaDark.svg", alt="")
+                        .social-circle 
+                            img(src="./assets/images/content/vkDark.svg", alt="")
+                        .social-circle 
+                            img(src="./assets/images/content/whatApp.png", alt="")
+        .map-container 
+            #map
+
+        include ./footer.pug
+        script(src="./assets/js/main.min.js")

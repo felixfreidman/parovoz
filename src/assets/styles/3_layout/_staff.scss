@@ -44,6 +44,21 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: -1;
+}
+
+.staff-body {
+    main {
+        z-index: 100;
+    }
+
+    footer {
+        z-index: 100;
+    }
+
+    header {
+        z-index: 100;
+    }
 }
 
 .main-staff {
