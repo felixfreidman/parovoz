@@ -29,7 +29,7 @@
             font-weight: 400;
             font-size: 14px;
             line-height: 17px;
-            color: #919fa7;
+            color: #fff;
             margin-bottom: 12px;
             transition: all 0.3s ease;
 
@@ -102,17 +102,18 @@
         }
 
         .footer-button {
-            font-weight: 600;
-            font-size: 16px;
-            line-height: 20px;
-            text-align: center;
-            color: #ffffff;
-            background: #d42515;
-            border: 1px solid #d42515;
             box-sizing: border-box;
             margin-bottom: 32px;
-            padding: 14px 24px;
             transition: all 0.3s ease;
+            background: linear-gradient(360deg, #d42515 0%, #e45649 100%);
+            box-shadow: 0px 4px 12px rgba(222, 77, 64, 0.4);
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 17px;
+            text-align: center;
+            padding: 18px 40px;
+            color: #ffffff;
 
             &:hover {
                 transform: scale(1.1);
