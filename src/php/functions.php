@@ -72,28 +72,23 @@ function ajax_form()
     $name = $_REQUEST['name'];
     $phone = $_REQUEST['phone'];
     $mail = $_REQUEST['mail'];
+    $order = $_REQUEST['order'];
     $response = '';
-    $thm = 'Заявка на демо-доступ';
+    $thm = 'Бронирование с сайта';
     $thm = "=?utf-8?b?" . base64_encode($thm) . "?=";
     $msg = "Имя: " . $name . "<br />
     Телефон: " . $phone . "<br />
-    Почта: " . $mail . "<br />";
-    $mail_to = get_field("email_to", 'option');
+    Почта: " . $mail . "<br />
+    Заказ: " . $order . "<br />";
+    $mail_to = get_field("mail", 'option');
 
     $headers = "Content-Type: text/html; charset=utf-8\n";
-    $headers .= 'От: Parovoz.Посадка' . "\r\n";
+    $headers .= 'От: Паровоз.сайт' . "\r\n";
 
 // Отправляем почтовое сообщение
 
     if (mail($mail_to, $thm, $msg, $headers)) {
-        $response = '<div class="applied-screen" id="appliedForm">
-<div class="form-close" id="closeAppliedForm"><span class="cross-one"> </span><span class="cross-two"></span>
-</div><img class="applied-icon"
-    src="https://Parovoz.yurin.biz/wp-content/themes/Parovoz/assets/images/content/main__applied.svg"
-alt="Form Applied">
-<div class="applied-header">Спасибо за заявку</div>
-<div class="applied-subheader">Менеджер свяжется с вами в ближайшее время</div>
-</div>';
+        $response = 'Подтвердили!';
     } else {
         $response = 'Ошибка при отправке';
     }

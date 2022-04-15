@@ -23,11 +23,11 @@ $address = get_field("address", "option");
                 href="#">Специалисты</a>
         </div>
         <div class="footer-column">
-            <a class="footer-link--bold" target="_blank" href="<?=home_url();?>/cafe">КАФЕ</a>
-            <a class="footer-link--bold" target="_blank" href="<?=home_url();?>/articles">PRO БАНЮ</a>
-            <a class=" footer-link--bold" target="_blank" href="<?=home_url();?>/staff">ТОВАРЫ</a>
-            <a class="footer-link--bold" target="_blank" href="<?=home_url();?>/feedback">ОТЗЫВЫ</a>
-            <a class="footer-link--bold" target="_blank" href="<?=home_url();?>/contacts">КОНТАКТЫ</a>
+            <a class="footer-link--bold" href="<?=home_url();?>/cafe">КАФЕ</a>
+            <a class="footer-link--bold" href="<?=home_url();?>/articles">PRO БАНЮ</a>
+            <a class=" footer-link--bold" href="<?=home_url();?>/staff">ТОВАРЫ</a>
+            <a class="footer-link--bold" href="<?=home_url();?>/feedback">ОТЗЫВЫ</a>
+            <a class="footer-link--bold" href="<?=home_url();?>/contacts">КОНТАКТЫ</a>
         </div>
         <div class="footer-container">
             <div class="footer-contacts">
@@ -55,6 +55,9 @@ $address = get_field("address", "option");
         href="https://yurin.biz" target="_blank">Сделано в Студии Юрина</a>
 </div>
 
+
+<script src="<?php echo get_template_directory_uri() . '/assets/js/jquery.min.js'?>"></script>
+<script src="<?php echo get_template_directory_uri() . '/assets/js/plugins.min.js'?>"></script>
 <script src="<?php echo get_template_directory_uri() . '/assets/js/main.min.js'?>"></script>
 
 </body>

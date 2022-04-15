@@ -39,6 +39,7 @@
                 font-size: 14px;
                 line-height: 17px;
                 color: #919FA7;
+                position: relative;
 
                 &--big {
                     width: 100%;
@@ -64,6 +65,11 @@
 
                     &:focus {
                         border: 1px solid #D42515;
+                    }
+
+                    &--warning {
+                        border: 1px solid #D42515;
+                        color: #D42515;
                     }
                 }
             }
@@ -220,18 +226,30 @@
             top: 36px;
             right: 46px;
 
+            &:hover {
+
+                .cross-one,
+                .cross-two {
+                    background-color: #D42515;
+                }
+
+            }
+
             .cross-one,
             .cross-two {
                 background-color: #606A70;
-                width: 16px;
-                height: 2px;
+                width: 26px;
+                height: 3px;
                 position: absolute;
                 top: 0;
                 right: 0;
                 left: 0;
                 bottom: 0;
                 margin: auto;
-                border-radius: 2px;
+                border-radius: 3px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+
             }
 
             .cross-one {
@@ -343,4 +361,16 @@
         }
 
     }
+}
+
+.empty--input::after {
+    content: "Поле обязательно";
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 14px;
+    color: #D42515;
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    display: block;
 }

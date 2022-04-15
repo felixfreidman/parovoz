@@ -7,16 +7,22 @@ get_header();
         <div class="header">Бронирование</div>
         <div class="header-bar"></div>
     </div>
-    <form class="form-book">
+    <form class="form-book" id="orderForm">
+        <input type="text" name="userOrder" id="userOrder" style="position:absolute; bottom: 0; right: 0; visibility: hidden;">
         <div class="contact-section">
             <div class="section-header">Контактные данные</div><label class="form-label form-label--big"
-                for="userName">ФИО<input class="form-input" id="userName" type="text" name="userName"
-                    placeholder="Ваше имя" /></label>
-            <div class="section-row"><label class="form-label form-label--small" for="userPhone"> Телефон<input
-                        class="form-input" id="userPhone" type="text" name="userPhone"
-                        placeholder="Ваш телефон" /></label><label class="form-label form-label--small"
-                    for="userEmail">E-mail<input class="form-input" id="userEmail" type="text" name="userEmail"
-                        placeholder="Ваша почта" /></label></div>
+                for="userName">ФИО
+                <input class="form-input" id="userName" type="text" name="userName" placeholder="Ваше имя" required />
+            </label>
+            <div class="section-row">
+                <label class="form-label form-label--small" for="userPhone"> Телефон
+                    <input class="form-input" id="userPhone" type="text" name="userPhone" placeholder="Ваш телефон"
+                        data-inputmask="'mask' : '+7(999) 999-99-99'" inputmode="text" required/>
+                </label>
+                <label class="form-label form-label--small" for="userEmail">E-mail
+                    <input class="form-input" id="userEmail" type="text" name="userEmail" placeholder="Ваша почта" required />
+                </label>
+            </div>
         </div>
         <div class="book-section">
             <div class="section-header">Ваше Бронирование</div>

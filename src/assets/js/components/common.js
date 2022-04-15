@@ -80,14 +80,13 @@ if (window.location.href.includes("book")) {
     const serviceName = order.serviceName;
     const servicePrice = order.servicePrice;
     const serviceDescription = order.serviceDescription;
+    const serviceCounter = order.serviceCounter;
 
-    const readyOrder = createServiceOrder(serviceName, servicePrice, serviceDescription, counter)
-    const totalOrder = createServiceTotal(serviceName, servicePrice, counter);
+    const readyOrder = createServiceOrder(serviceName, servicePrice, serviceDescription, serviceCounter)
+    const totalOrder = createServiceTotal(serviceName, servicePrice, serviceCounter);
 
-    counter++;
     orderContainer.insertAdjacentHTML('beforeend', readyOrder);
     orderList.insertAdjacentHTML('beforeend', totalOrder);
-    console.log(localStorage.getObj("bookedServices"));
   })
 
   function createServiceOrder(name, price, description, id) {
@@ -125,6 +124,22 @@ if (window.location.href.includes("book")) {
     return HTMLString;
   }
 
+  function updateUserOrderField() {
+    const userOrderField = document.getElementById("userOrder");
+    const userOrderList = document.querySelectorAll(".order-item");
+    const totalPrice = document.getElementById("orderTotalPrice").textContent;
+    let orderString = '';
+    userOrderList.forEach(order => {
+      const orderName = order.querySelector(".order-item__name").textContent;
+      const orderPrice = order.querySelector(".order-item__price").textContent;
+      orderString = `${orderString} ${orderName} - ${orderPrice}.  `
+    });
+    let totalString = `Всего: ${totalPrice}`;
+    orderString += totalString;
+    userOrderField.value = orderString;
+    console.log(userOrderField.value);
+  }
+
   function updateTotalNumber() {
     if (document.querySelectorAll(".order-item__price")) {
       const allOrdersNums = document.querySelectorAll(".order-item__price");
@@ -146,6 +161,8 @@ if (window.location.href.includes("book")) {
   }
   setTimeout(updateTotalNumber, 100)
   setTimeout(deleteOrderFromLists, 100)
+  setTimeout(updateUserOrderField, 100)
+
   function deleteOrderFromLists() {
     const allCrosses = document.querySelectorAll(".cross");
     var orderContainer = document.querySelector(".orders-container");
@@ -159,6 +176,8 @@ if (window.location.href.includes("book")) {
         orderContainer.removeChild(orderItem);
         orderList.removeChild(orderTotalItem);
         updateTotalNumber();
+        updateUserOrderField()
+
         crossCounter = parseInt(crossCounter);
         var filteredArray = booksArray.filter(function (value, index, arr) {
           value = value.serviceCounter;
@@ -168,5 +187,8 @@ if (window.location.href.includes("book")) {
       })
     })
   }
+  $(document).ready(function () {
+    $("#userPhone").inputmask();
+  });
 
 }
