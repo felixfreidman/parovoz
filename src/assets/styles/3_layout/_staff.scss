@@ -9,6 +9,15 @@
         position: absolute;
         left: 140px;
         top: 16px;
+
+        a {
+            color: #fff;
+            transition: all 0.3s ease;
+
+            &:hover {
+                color: #d72024;
+            }
+        }
     }
 
     .header-container {

@@ -35,15 +35,26 @@ a {
     width: calc(100vw);
     height: fit-content;
     position: relative;
+
     .main__breadcrumbs {
         font-weight: 500;
         font-size: 14px;
         line-height: 17px;
-        color: #ffffff;
+        color: #d42515;
         position: absolute;
         left: 140px;
         top: 16px;
+
+        a {
+            color: #d42515;
+            transition: all 0.3s ease;
+
+            &:hover {
+                color: #fff;
+            }
+        }
     }
+
     .main__container {
         .container__service-name {
             height: 473px;
@@ -53,64 +64,75 @@ a {
             max-height: 473px;
             padding-bottom: 57px;
             overflow-x: hidden;
-            background: linear-gradient( 360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/service_main.png) no-repeat;
-            background-size: cover;
+            
+            background-size: cover !important;
+
             .row {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
                 width: 100%;
             }
+
             .name-container {
                 display: flex;
                 flex-direction: column;
                 align-items: start;
                 margin-left: 140px;
+
                 .service-data {
                     font-weight: 400;
                     font-size: 16px;
                     line-height: 20px;
                     color: #919fa7;
                 }
+
                 .service-header {
                     font-weight: 700;
                     font-size: 44px;
                     line-height: 54px;
                     color: #fff;
                 }
+
                 .container-bar {
                     width: 312px;
                     height: 4px;
-                    background: linear-gradient( 90deg, #ff0004 0%, rgba(255, 0, 4, 0) 99.23%);
+                    background: linear-gradient(90deg, #ff0004 0%, rgba(255, 0, 4, 0) 99.23%);
                     margin-top: 32px;
                 }
             }
+
             .service-data-container {
                 display: flex;
                 flex-direction: column;
                 align-items: start;
                 margin-right: 140px;
+
                 .service-data__price-container {
                     display: flex;
                     align-items: end;
                     margin-bottom: 40px;
+
                     .price-tag {
                         font-weight: 700;
                         font-size: 32px;
                         line-height: 39px;
                     }
+
                     .price-currency {
                         font-weight: 700;
                         font-size: 32px;
                         line-height: 39px;
                         margin-left: 10px;
                     }
+
                     .price-time {
                         font-size: 16px;
                         font-weight: 600;
                         line-height: 27px;
                     }
                 }
+
                 .apply-btn {
                     background: linear-gradient(360deg, #d42515 0%, #e45649 100%);
                     box-shadow: 0px 4px 12px rgba(222, 77, 64, 0.4);
@@ -124,14 +146,18 @@ a {
                 }
             }
         }
+
         .article-container {
-            background: linear-gradient( 360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/article_main.png) no-repeat;
-            background-size: cover;
+
+            background-size: cover !important;
+            background-position: center !important;
         }
+
         .container__description {
             overflow-x: hidden;
             width: calc(100% - 280px);
             padding: 58px 140px 96px 140px;
+
             .description-header {
                 font-weight: 700;
                 font-size: 16px;
@@ -139,6 +165,7 @@ a {
                 color: #fff;
                 margin-bottom: 12px;
             }
+
             .description-content {
                 font-weight: 400;
                 font-size: 16px;
@@ -146,26 +173,32 @@ a {
                 margin-bottom: 90px;
                 max-width: 648px;
             }
+
             .low-margin {
                 margin-bottom: 20px;
             }
+
             .description__information-container {
                 display: flex;
                 align-items: start;
             }
+
             .information-container__column {
                 display: flex;
                 align-items: start;
                 margin-right: 129px;
+
                 .information-container__logo {
                     width: 40px;
                     height: 40px;
                     margin-right: 16px;
                 }
+
                 .information-container__info {
                     display: flex;
                     flex-direction: column;
                 }
+
                 .information-container__header {
                     font-weight: 400;
                     font-size: 14px;
@@ -173,12 +206,14 @@ a {
                     color: #919fa7;
                     margin-bottom: 8px;
                 }
+
                 .information-container__list {
                     display: flex;
                     flex-direction: column;
                     align-items: start;
                     list-style: none;
                 }
+
                 .information-container__item {
                     font-weight: 400;
                     font-size: 16px;
@@ -186,16 +221,19 @@ a {
                     color: #ffffff;
                     margin-bottom: 5px;
                 }
+
                 .first-column {
                     background-image: url(./assets/images/content/service_equip.svg);
                     background-size: cover;
                     background-position: center;
                 }
+
                 .second-column {
                     background-image: url(./assets/images/content/service_master.svg);
                     background-size: cover;
                     background-position: center;
                 }
+
                 .third-column {
                     background-image: url(./assets/images/content/service_time.svg);
                     background-size: cover;
