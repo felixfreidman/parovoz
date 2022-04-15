@@ -13,7 +13,8 @@ $service_section_bg = get_field("service_section_bg");
         <?=get_the_title() ?>
     </div>
     <div class="main__container">
-        <div class="container__service-name" style="background: linear-gradient(360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(<?=$service_section_bg?>) no-repeat;">
+        <div class="container__service-name"
+            style="background: linear-gradient(360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(<?=$service_section_bg?>) no-repeat;">
             <div class="row">
                 <div class="name-container">
                     <div class="service-header"><?=get_the_title() ?></div>
@@ -25,8 +26,7 @@ $service_section_bg = get_field("service_section_bg");
                         <div class="price-currency">₽</div>
                         <div class="price-time">/час</div>
                     </div>
-                    <a href="<?=home_url();?>/book" target="_blank"
-                        class="service-data__book-btn apply-btn">Забронировать</a>
+                    <div class="service-data__book-btn apply-btn">Забронировать</div>
                 </div>
             </div>
         </div>
