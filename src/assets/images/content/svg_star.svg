@@ -1,0 +1,13 @@
+
+<svg id="stars" style="display: none;" version="1.1">
+  <symbol id="stars-empty-star" viewBox="0 0 102 18" fill="#B5C0C6">
+    <path d="M8 0.5L10.1489 5.54223L15.6085 6.02786L11.4771 9.62977L12.7023 14.9721L8 12.156L3.29772 14.9721L4.52294 9.62977L0.391548 6.02786L5.85106 5.54223L8 0.5Z" />
+  </symbol>
+  <symbol id="stars-full-star" viewBox="0 0 102 18" fill="#D42515">
+    <path d="M8 0.5L10.1489 5.54223L15.6085 6.02786L11.4771 9.62977L12.7023 14.9721L8 12.156L3.29772 14.9721L4.52294 9.62977L0.391548 6.02786L5.85106 5.54223L8 0.5Z" />
+  </symbol>
+  <symbol id="stars-half-star" viewBox="0 0 102 18" fill="#D42515">
+    <use href="#stars-empty-star" />
+    <path d="M9.5 14.25l-5.584 2.936 1.066-6.218L.465 6.564l6.243-.907L9.5 0l2.792" />
+  </symbol>
+</svg>

@@ -241,5 +241,34 @@ var swiper = new Swiper('#workerSwiper', {
   speed: 400,
   spaceBetween: 34,
   effect: 'cards',
-  slidesPerView: '4'
+  slidesPerView: '4',
+  swipeHandler: '.swiper-wrapper'
+});
+var swiperImages = document.querySelectorAll(".bathroom-preview");
+console.log(swiperImages);
+var imgLinkArray = new Array();
+var returnValue = 0;
+swiperImages.forEach(function (image) {
+  var imageSrc = image.src.replace("http://localhost:3000", ".");
+  var returnValue = "<img class=\"swiper-preview swiper-pagination-bullet\" src=".concat(imageSrc, ">");
+  imgLinkArray.push(returnValue);
+});
+var fancySwiper = new Swiper('#fancySwiper', {
+  direction: 'horizontal',
+  loop: true,
+  speed: 500,
+  spaceBetween: 34,
+  effect: 'fade',
+  fadeEffect: {
+    crossFade: true
+  },
+  slidesPerView: '1',
+  swipeHandler: '.swiper-wrapper',
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+    renderBullet: function renderBullet(index) {
+      return imgLinkArray[index];
+    }
+  }
 });

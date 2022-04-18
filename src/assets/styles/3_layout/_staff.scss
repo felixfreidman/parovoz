@@ -46,7 +46,7 @@
     }
 }
 
-.staff-body:before {
+body:before {
     content: url(./assets/images/content/vapor.png);
     width: 100vw;
     height: 100vh;
@@ -56,7 +56,7 @@
     z-index: -1;
 }
 
-.staff-body {
+body {
     main {
         z-index: 100;
     }
