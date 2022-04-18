@@ -234,6 +234,18 @@ if (window.location.href.includes("book")) {
   });
 }
 
+$("#slider").slider({
+  animate: "fast",
+  max: 5,
+  min: 1,
+  step: 1,
+  value: 5,
+  range: true,
+  values: [1, 5],
+  slide: function slide(event, ui) {
+    $("#starRating").val(ui.value);
+  }
+});
 var swiper = new Swiper('#workerSwiper', {
   // Optional parameters
   direction: 'horizontal',

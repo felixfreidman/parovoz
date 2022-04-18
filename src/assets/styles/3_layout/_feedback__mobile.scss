@@ -1,0 +1,12 @@
+@media screen and (max-width: 1450px) {
+    .main-feedback {
+        width: calc(100% - 200px);
+        padding: 97px 100px;
+
+        .breadcrumbs {
+            position: absolute;
+            left: 100px;
+            top: 16px;
+        }
+    }
+}
