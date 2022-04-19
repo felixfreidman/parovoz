@@ -23,20 +23,26 @@ html(lang="en")
                 .header Отзывы
                 .header-bar
             .controls-section 
-                form
+                form#ratingForm
                     select#bathType(name="bathType").controls-section__select
-                        option(value="all", checked) Все
-                        option(value="usual") Обычная
-                        option(value="cool") Лучше
-                        option(value="awesome") Крутая
+                        option(value="Все", checked) Все
+                        option(value="Уральская") Уральская
+                        option(value="Охотничья") Охотничья
+                        option(value="Ямская") Ямская
+                        option(value="Рыбацкая") Рыбацкая
+                        option(value="Раздольная") Раздольная
+                        option(value="Семейная") Семейная
+                        option(value="Сибирская") Сибирская
+                        option(value="Лесная") Лесная
+                        option(value="Хуторок") Хуторок
                     .box-container
                         input#starRating(type="text", name="starRating", value="5", readonly).controls-section__input
                         .slider-rating#slider
-                    button(type="reset").controls-section__button Сбросить фильтр
+                    button(type="reset").controls-section__button.js--hidden Сбросить фильтр
                 .add-feedback Оставить отзыв
             .feedback-container
                 .feedback-list 
-                    .feedback-item.usual
+                    .feedback-item 
                         .feedback-item__info 
                             .feedback-item__name Ирина
                             .feedback-item__date 19.05.21
@@ -46,10 +52,11 @@ html(lang="en")
                                     use(href="#stars-full-star")
                                     use(href="#stars-full-star")
                                     use(href="#stars-full-star")
-                                    use(href="#stars-empty-star")
-                                .amount 4
+                                    use(href="#stars-full-star")
+                                .amount 5
+                            .feedback-item__caption Уральская
                         .feedback-item__content Баня очень хорошая и комфортная. Парилка просто супер! Нам очень понравилось. Мы с мамой отдохнули очень хорошо! В спальне кровать такая удобная, что можно уснуть на 3 дня не просыпаясь. 
-                    .feedback-item.cool
+                    .feedback-item 
                         .feedback-item__info 
                             .feedback-item__name Ирина
                             .feedback-item__date 19.05.21
@@ -59,10 +66,12 @@ html(lang="en")
                                     use(href="#stars-full-star")
                                     use(href="#stars-full-star")
                                     use(href="#stars-full-star")
-                                    use(href="#stars-empty-star")
-                                .amount 4
+                                    use(href="#stars-full-star")
+                                .amount 5
+                            
+                            .feedback-item__caption Охотничья
                         .feedback-item__content Баня очень хорошая и комфортная. Парилка просто супер! Нам очень понравилось. Мы с мамой отдохнули очень хорошо! В спальне кровать такая удобная, что можно уснуть на 3 дня не просыпаясь. 
-                    .feedback-item.awesome
+                    .feedback-item 
                         .feedback-item__info 
                             .feedback-item__name Ирина
                             .feedback-item__date 19.05.21
@@ -72,10 +81,12 @@ html(lang="en")
                                     use(href="#stars-full-star")
                                     use(href="#stars-full-star")
                                     use(href="#stars-full-star")
-                                    use(href="#stars-empty-star")
-                                .amount 4
+                                    use(href="#stars-full-star")
+                                .amount 5
+                            
+                            .feedback-item__caption Уральская
                         .feedback-item__content Баня очень хорошая и комфортная. Парилка просто супер! Нам очень понравилось. Мы с мамой отдохнули очень хорошо! В спальне кровать такая удобная, что можно уснуть на 3 дня не просыпаясь. 
-                    .feedback-item.usual
+                    .feedback-item 
                         .feedback-item__info 
                             .feedback-item__name Ирина
                             .feedback-item__date 19.05.21
@@ -84,11 +95,13 @@ html(lang="en")
                                     use(href="#stars-full-star")
                                     use(href="#stars-full-star")
                                     use(href="#stars-full-star")
-                                    use(href="#stars-full-star")
                                     use(href="#stars-empty-star")
-                                .amount 4
+                                    use(href="#stars-empty-star")
+                                .amount 3
+                            
+                            .feedback-item__caption Уральская
                         .feedback-item__content Баня очень хорошая и комфортная. Парилка просто супер! Нам очень понравилось. Мы с мамой отдохнули очень хорошо! В спальне кровать такая удобная, что можно уснуть на 3 дня не просыпаясь. 
-                    .feedback-item.cool
+                    .feedback-item 
                         .feedback-item__info 
                             .feedback-item__name Ирина
                             .feedback-item__date 19.05.21
@@ -97,11 +110,13 @@ html(lang="en")
                                     use(href="#stars-full-star")
                                     use(href="#stars-full-star")
                                     use(href="#stars-full-star")
-                                    use(href="#stars-full-star")
                                     use(href="#stars-empty-star")
-                                .amount 4
+                                    use(href="#stars-empty-star")
+                                .amount 3
+
+                            .feedback-item__caption Уральская
                         .feedback-item__content Баня очень хорошая и комфортная. Парилка просто супер! Нам очень понравилось. Мы с мамой отдохнули очень хорошо! В спальне кровать такая удобная, что можно уснуть на 3 дня не просыпаясь. 
-                    .feedback-item.awesome
+                    .feedback-item 
                         .feedback-item__info 
                             .feedback-item__name Ирина
                             .feedback-item__date 19.05.21
@@ -109,12 +124,14 @@ html(lang="en")
                                 svg(aria-hidden="true",focusable="false")
                                     use(href="#stars-full-star")
                                     use(href="#stars-full-star")
-                                    use(href="#stars-full-star")
-                                    use(href="#stars-full-star")
                                     use(href="#stars-empty-star")
-                                .amount 4
+                                    use(href="#stars-empty-star")
+                                    use(href="#stars-empty-star")
+                                .amount 2
+                            
+                            .feedback-item__caption Лесная
                         .feedback-item__content Баня очень хорошая и комфортная. Парилка просто супер! Нам очень понравилось. Мы с мамой отдохнули очень хорошо! В спальне кровать такая удобная, что можно уснуть на 3 дня не просыпаясь. 
-                    .feedback-item.usual
+                    .feedback-item 
                         .feedback-item__info 
                             .feedback-item__name Ирина
                             .feedback-item__date 19.05.21
@@ -122,25 +139,29 @@ html(lang="en")
                                 svg(aria-hidden="true",focusable="false")
                                     use(href="#stars-full-star")
                                     use(href="#stars-full-star")
-                                    use(href="#stars-full-star")
-                                    use(href="#stars-full-star")
                                     use(href="#stars-empty-star")
-                                .amount 4
+                                    use(href="#stars-empty-star")
+                                    use(href="#stars-empty-star")
+                                .amount 2
+                            
+                            .feedback-item__caption Лесная
                         .feedback-item__content Баня очень хорошая и комфортная. Парилка просто супер! Нам очень понравилось. Мы с мамой отдохнули очень хорошо! В спальне кровать такая удобная, что можно уснуть на 3 дня не просыпаясь. 
-                    .feedback-item.cool
+                    .feedback-item 
                         .feedback-item__info 
                             .feedback-item__name Ирина
                             .feedback-item__date 19.05.21
                             .feedback-item__rating
                                 svg(aria-hidden="true",focusable="false")
                                     use(href="#stars-full-star")
-                                    use(href="#stars-full-star")
-                                    use(href="#stars-full-star")
-                                    use(href="#stars-full-star")
                                     use(href="#stars-empty-star")
-                                .amount 4
+                                    use(href="#stars-empty-star")
+                                    use(href="#stars-empty-star")
+                                    use(href="#stars-empty-star")
+                                .amount 1
+                            
+                            .feedback-item__caption Раздольная
                         .feedback-item__content Баня очень хорошая и комфортная. Парилка просто супер! Нам очень понравилось. Мы с мамой отдохнули очень хорошо! В спальне кровать такая удобная, что можно уснуть на 3 дня не просыпаясь. 
-                    .feedback-item.awesome
+                    .feedback-item 
                         .feedback-item__info 
                             .feedback-item__name Ирина
                             .feedback-item__date 19.05.21
@@ -152,6 +173,8 @@ html(lang="en")
                                     use(href="#stars-full-star")
                                     use(href="#stars-empty-star")
                                 .amount 4
+                            
+                            .feedback-item__caption Раздольная
                         .feedback-item__content Баня очень хорошая и комфортная. Парилка просто супер! Нам очень понравилось. Мы с мамой отдохнули очень хорошо! В спальне кровать такая удобная, что можно уснуть на 3 дня не просыпаясь. 
                     .articles-pagination 
                         a.page-number.page-number--active 1
