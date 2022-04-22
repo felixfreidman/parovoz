@@ -4,16 +4,6 @@ Storage.prototype.setObj = function (key, obj) {
 Storage.prototype.getObj = function (key) {
   return JSON.parse(this.getItem(key))
 }
-var globalCounter = 0;
-if (localStorage.getItem("globalCounter")) {
-  globalCounter = localStorage.getItem("globalCounter");
-}
-
-
-let booksArray = new Array();
-if (localStorage.getObj("bookedServices")) {
-  booksArray = localStorage.getObj("bookedServices");
-}
 
 if (document.querySelector(".article-card")) {
   const cardsArray = document.querySelectorAll(".article-card");
@@ -41,77 +31,61 @@ if (document.getElementById("orderDate")) {
   document.getElementById('orderDate').valueAsDate = new Date();
 }
 
-
-if (window.location.href.includes("product")) {
-
-  const bookBtn = document.querySelector(".service-data__book-btn");
-
-  bookBtn.addEventListener("click", createBookingItem);
-
-  function createBookingItem() {
-    const serviceName = document.querySelector(".service-header").textContent;
-    const servicePrice = document.querySelector(".price-tag").textContent;
-    const serviceDescription = document.querySelector(".description-content").textContent;
-    const bookObj = {
-      serviceCounter: parseInt(globalCounter),
-      serviceName: serviceName,
-      servicePrice: servicePrice,
-      serviceDescription: serviceDescription,
-    }
-    booksArray.push(bookObj);
-    localStorage.setObj("bookedServices", booksArray);
+function updateUserOrderField() {
+  const userOrderField = document.getElementById("userOrder");
+  const userOrderList = document.querySelectorAll(".order-item");
+  const totalPrice = document.getElementById("orderTotalPrice").textContent;
+  let orderString = '';
+  userOrderList.forEach(order => {
+    const orderName = order.querySelector(".order-item__name").textContent;
+    const orderPrice = order.querySelector(".order-item__price").textContent;
+    orderString = `${orderString} ${orderName} - ${orderPrice}.  `
+  });
+  let totalString = `Всего: ${totalPrice}`;
+  orderString += totalString;
+  userOrderField.value = orderString;
+}
 
 
-    localStorage.setItem("globalCounter", globalCounter);
-    globalCounter++;
-    window.location.href = "book"
+if (window.location.href.includes("book")) {
 
-
-  }
+  $(document).ready(function () {
+    $("#userPhone").inputmask();
+  });
 
 }
 
-if (window.location.href.includes("book")) {
-  var bookedItems = localStorage.getObj("bookedServices");
-  var orderContainer = document.querySelector(".orders-container");
+if (document.querySelector(".container-card")) {
+  setTimeout(makeCardsLink, 300)
+}
+
+function makeCardsLink() {
+  const cards = document.querySelectorAll(".container-card");
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const link = card.dataset.href;
+      window.location.href = link;
+    })
+  })
+}
+
+
+
+if (window.location.href.includes("cart")) {
   var orderList = document.querySelector(".order-list");
-  let counter = 0;
-  bookedItems.forEach(order => {
-    const serviceName = order.serviceName;
-    const servicePrice = order.servicePrice;
-    const serviceDescription = order.serviceDescription;
-    const serviceCounter = order.serviceCounter;
+  const bookedItems = document.querySelectorAll(".order-container")
+  bookedItems.forEach((order, index) => {
+    const serviceName = order.querySelector('.order-header').querySelector("a").textContent;
+    let servicePrice = order.querySelector('.order-cost').querySelector("span").querySelector("bdi").textContent;
+    servicePrice = servicePrice.match(/\d+/g);
+    servicePrice = servicePrice[0] + '';
+    const serviceCounter = index;
 
-    const readyOrder = createServiceOrder(serviceName, servicePrice, serviceDescription, serviceCounter)
-    const totalOrder = createServiceTotal(serviceName, servicePrice, serviceCounter);
-
-    orderContainer.insertAdjacentHTML('beforeend', readyOrder);
+    const totalOrder = createServiceTotal(serviceName, servicePrice, index);
     orderList.insertAdjacentHTML('beforeend', totalOrder);
   })
 
-  function createServiceOrder(name, price, description, id) {
-    const HTMLString = `
-    <div class="order-container order-service" id="service${id}">
-    <div class="cross" id="cross${id}">
-        <div class="cross-one"> </div>
-        <div class="cross-two"></div>
-    </div>
-    <div class="order-row">
-        <div class="order-info">
-            <div class="order-header">${name}</div>
-            <div class="order-cost">${price} ₽ / час</div>
-        </div>
-    </div>
-    <div class="order-content">
-        <div class="content-header">Описание</div>
-        <div class="content-description">
-            <div>${description}</div>
-        </div>
-    </div>
-</div>
-    `;
-    return HTMLString;
-  }
   function createServiceTotal(name, price, id) {
     const HTMLString =
       `
@@ -160,35 +134,78 @@ if (window.location.href.includes("book")) {
     }
   }
   setTimeout(updateTotalNumber, 100)
-  setTimeout(deleteOrderFromLists, 100)
   setTimeout(updateUserOrderField, 100)
-
-  function deleteOrderFromLists() {
-    const allCrosses = document.querySelectorAll(".cross");
-    var orderContainer = document.querySelector(".orders-container");
-    var orderList = document.querySelector(".order-list");
-    allCrosses.forEach(cross => {
-      cross.addEventListener("click", () => {
-        let crossCounter = cross.id.replace('cross', '');
-
-        const orderItem = document.getElementById(`service${crossCounter}`);
-        const orderTotalItem = document.getElementById(`totalOrderID${crossCounter}`);
-        orderContainer.removeChild(orderItem);
-        orderList.removeChild(orderTotalItem);
-        updateTotalNumber();
-        updateUserOrderField()
-
-        crossCounter = parseInt(crossCounter);
-        var filteredArray = booksArray.filter(function (value, index, arr) {
-          value = value.serviceCounter;
-          return value != crossCounter;
-        });
-        localStorage.setObj("bookedServices", filteredArray);
-      })
-    })
-  }
   $(document).ready(function () {
     $("#userPhone").inputmask();
   });
 
+}
+
+
+
+if (document.querySelector(".add-feedback")) {
+  const darkLayer = document.querySelector(".dark-layer");
+  const applyBtn = document.querySelector(".add-feedback");
+  const closeForm = document.getElementById("closeForm");
+  const applyFormScreen = document.getElementById("applyForm");
+  applyBtn.addEventListener("click", () => {
+
+    darkLayer.classList.toggle("js--hidden");
+  })
+
+  closeForm.addEventListener("click", () => {
+    darkLayer.classList.toggle("js--hidden");
+  });
+
+  window.onclick = function (event) {
+    if (event.target == darkLayer) {
+      darkLayer.classList.toggle("js--hidden");
+    }
+  };
+}
+
+
+if (window.location.href.includes("feedback")) {
+  const reviews = document.querySelectorAll('.feedback-item');
+  reviews.forEach(review => {
+    let review_content = review.querySelector('.feedback-item__content').textContent;
+    const bath_type_name = review.querySelector('.feedback-item__caption');
+    const star_rating_amount = review.querySelector('.amount');
+    const star_rating = review_content.substring(review_content.indexOf("star") - 1, review_content.indexOf("star"));
+    const bath_type = review_content.substring(review_content.indexOf("bath") - 3, review_content.indexOf("bath"));
+    review_content = review_content.replace(`${bath_type}bath`, '')
+    review_content = review_content.replace(`${star_rating}star`, '')
+    review.querySelector('.feedback-item__content').textContent = review_content;
+    star_rating_amount.textContent = star_rating
+    bath_type_name.textContent = bath_type
+    switch (bath_type) {
+      case 'Ура':
+        bath_type_name.textContent = 'Уральская'
+        break;
+      case 'Охо':
+        bath_type_name.textContent = 'Охотничья'
+        break;
+      case 'Ямс':
+        bath_type_name.textContent = 'Ямская'
+        break;
+      case 'Рыб':
+        bath_type_name.textContent = 'Рыбацкая'
+        break;
+      case 'Раз':
+        bath_type_name.textContent = 'Раздольная'
+        break;
+      case 'Сем':
+        bath_type_name.textContent = 'Семейная'
+        break;
+      case 'Сиб':
+        bath_type_name.textContent = 'Сибирская'
+        break;
+      case 'Лес':
+        bath_type_name.textContent = 'Лесная'
+        break;
+      case 'Хут':
+        bath_type_name.textContent = 'Хуторок'
+        break;
+    }
+  })
 }

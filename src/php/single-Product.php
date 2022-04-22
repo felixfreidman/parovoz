@@ -26,7 +26,8 @@ $service_section_bg = get_field("service_section_bg");
                         <div class="price-currency">₽</div>
                         <div class="price-time">/час</div>
                     </div>
-                    <div class="service-data__book-btn apply-btn">Забронировать</div>
+                    <a href="<?php $add_to_cart = do_shortcode('[add_to_cart_url id="'.$post->ID.'"]'); echo $add_to_cart;?>"
+                        class="service-data__book-btn apply-btn">Забронировать</a>
                 </div>
             </div>
         </div>

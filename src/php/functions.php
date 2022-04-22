@@ -1,32 +1,74 @@
-<?php 
+<?php
 /**
- * Parovoz Theme functions and definitions
+ * Storefront engine room
  *
+ * @package storefront
  */
-function Parovoz_theme_support()
-{
-    wp_enqueue_style("style.min.css", 'all');
-    add_theme_support('post-thumbnails');
-    set_post_thumbnail_size(1200, 9999);
-    add_image_size('twentytwenty-fullscreen', 1980, 9999);
-    add_theme_support('title-tag');
+
+/**
+ * Assign the Storefront version to a var
+ */
+$theme              = wp_get_theme( 'storefront' );
+$storefront_version = $theme['Version'];
+
+/**
+ * Set the content width based on the theme's design and stylesheet.
+ */
+if ( ! isset( $content_width ) ) {
+	$content_width = 980; /* pixels */
 }
 
-add_action("after_setup_theme", "Parovoz_theme_support");
+$storefront = (object) array(
+	'version'    => $storefront_version,
 
-// Настройки WooCommerce
+	/**
+	 * Initialize all the things.
+	 */
+	'main'       => require 'inc/class-storefront.php',
+	'customizer' => require 'inc/customizer/class-storefront-customizer.php',
+);
 
-add_filter( 'woocommerce_product_single_add_to_cart_text', 'woo_custom_single_add_to_cart_text' );  // 2.1 +
-  
-function woo_custom_single_add_to_cart_text() {
-  
-    return __( 'Забронировать', 'woocommerce' );
-  
+require 'inc/storefront-functions.php';
+require 'inc/storefront-template-hooks.php';
+require 'inc/storefront-template-functions.php';
+require 'inc/wordpress-shims.php';
+
+if ( class_exists( 'Jetpack' ) ) {
+	$storefront->jetpack = require 'inc/jetpack/class-storefront-jetpack.php';
 }
 
+if ( storefront_is_woocommerce_activated() ) {
+	$storefront->woocommerce            = require 'inc/woocommerce/class-storefront-woocommerce.php';
+	$storefront->woocommerce_customizer = require 'inc/woocommerce/class-storefront-woocommerce-customizer.php';
 
+	require 'inc/woocommerce/class-storefront-woocommerce-adjacent-products.php';
 
-// Настройка для админки
+	require 'inc/woocommerce/storefront-woocommerce-template-hooks.php';
+	require 'inc/woocommerce/storefront-woocommerce-template-functions.php';
+	require 'inc/woocommerce/storefront-woocommerce-functions.php';
+}
+
+if ( is_admin() ) {
+	$storefront->admin = require 'inc/admin/class-storefront-admin.php';
+
+	require 'inc/admin/class-storefront-plugin-install.php';
+}
+
+/**
+ * NUX
+ * Only load if wp version is 4.7.3 or above because of this issue;
+ * https://core.trac.wordpress.org/ticket/39610?cversion=1&cnum_hist=2
+ */
+if ( version_compare( get_bloginfo( 'version' ), '4.7.3', '>=' ) && ( is_admin() || is_customize_preview() ) ) {
+	require 'inc/nux/class-storefront-nux-admin.php';
+	require 'inc/nux/class-storefront-nux-guided-tour.php';
+	require 'inc/nux/class-storefront-nux-starter-content.php';
+}
+
+/**
+ * Note: Do not add any custom code here. Please use a custom plugin so that your customizations aren't lost during updates.
+ * https://github.com/woocommerce/theme-customisations
+ */
 
 if (function_exists('acf_add_options_page')) {
 
@@ -38,23 +80,6 @@ if (function_exists('acf_add_options_page')) {
         'redirect' => false,
     ));
 }
-
-// Register Styles and Scripts
-
-function Parovoz_register_styles()
-{
-
-    wp_enqueue_style('main-style-css', get_stylesheet_uri() . "/main.min.css");
-}
-
-add_action('wp_enqueue_scripts', 'Parovoz_register_styles');
-
-function Parovoz_register_scripts()
-{
-    wp_enqueue_script('main', get_template_directory_uri() . '/assets/js/main.min.js');
-}
-
-add_action('wp_enqueue_scripts', 'Parovoz_register_scripts');
 
 // AJAX и отправка писем
 
@@ -74,7 +99,7 @@ function ajax_form()
     $mail = $_REQUEST['mail'];
     $order = $_REQUEST['order'];
     $response = '';
-    $thm = 'Бронирование с сайта';
+    $thm = 'Бронирование бани и услуг';
     $thm = "=?utf-8?b?" . base64_encode($thm) . "?=";
     $msg = "Имя: " . $name . "<br />
     Телефон: " . $phone . "<br />
@@ -83,12 +108,12 @@ function ajax_form()
     $mail_to = get_field("mail", 'option');
 
     $headers = "Content-Type: text/html; charset=utf-8\n";
-    $headers .= 'От: Паровоз.сайт' . "\r\n";
+    $headers .= 'От: Parovoz.Сайт' . "\r\n";
 
 // Отправляем почтовое сообщение
 
     if (mail($mail_to, $thm, $msg, $headers)) {
-        $response = 'Подтвердили!';
+        $response = 'Отправили!';
     } else {
         $response = 'Ошибка при отправке';
     }
@@ -101,5 +126,56 @@ function ajax_form()
     }
 }
 
+
+add_action('wp_ajax_nopriv_ajax_form', 'review_form');
+add_action('wp_ajax_ajax_form', 'review_form');
+
+function review_form()
+{
+    $name = $_REQUEST['name'];
+    $description = $_REQUEST['description'];
+
+    
+        // Add the content of the form to $post as an array
+        $new_post = array(
+            'post_title'    => $name,
+            'post_content'  => $description,
+            'post_status'   => 'publish', 
+            'post_type' => 'reviews' 
+        );
+        //save the new post
+        $pid = wp_insert_post($new_post); 
+        //insert taxonomies
+
+        if ($pid) {
+            $response = '<div class="applied-screen" id="appliedForm">
+    <div class="form-close" id="closeAppliedForm"><span class="cross-one"> </span><span class="cross-two"></span>
+    </div><img class="applied-icon"
+        src="https://tadam.yurin.biz/wp-content/themes/tadam/assets/images/content/main__applied.svg"
+    alt="Form Applied">
+    <div class="applied-header">Отзыв отправлен!</div>
+    <div class="applied-subheader">Спасибо за оценку!</div>
+    </div>';
+        } else {
+            $response = 'Ошибка при отправке';
+        }
+        
+        if (defined('DOING_AJAX') && DOING_AJAX) {
+            echo $response;
+            wp_die();
+        }
+    
+}
+
 add_action('wp_ajax_nopriv_ajax_form', 'ajax_form');
 add_action('wp_ajax_ajax_form', 'ajax_form');
+remove_filter('the_content', 'wpautop');
+remove_filter('the_excerpt', 'wpautop');
+
+add_filter( 'woocommerce_get_item_data', 'wc_checkout_description_so_15127954', 10, 2 );
+function wc_checkout_description_so_15127954( $other_data, $cart_item )
+{
+    $post_data  = get_post( $cart_item['product_id'] );
+    $other_data[] = array( 'name' =>  $post_data->post_excerpt );
+    return $other_data;
+}

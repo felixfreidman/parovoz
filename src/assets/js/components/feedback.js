@@ -1,4 +1,4 @@
-$("#slider").slider({
+jQuery("#slider").slider({
     animate: "fast",
     max: 5,
     min: 1,

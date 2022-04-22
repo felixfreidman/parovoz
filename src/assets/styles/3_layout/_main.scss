@@ -174,3 +174,269 @@
         }
     }
 }
+
+.entry-title {
+    display: none !important;
+}
+
+.entry-title {
+    display: none !important;
+}
+
+// FORM SECTION ===================
+.dark-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba($color: #000, $alpha: 0.5);
+}
+
+.apply-form {
+    width: 599px;
+    height: 461px;
+    background: #1A2F44;
+    box-shadow: 0px 2px 32px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 48px;
+    position: relative;
+
+    .form-close {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 22.75px;
+        height: 22.75px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        &:hover {
+
+            .cross-one,
+            .cross-two {
+                background-color: #d42515;
+            }
+        }
+
+        .cross-one,
+        .cross-two {
+            display: block;
+            background-color: #c2c2c2;
+            width: 22.75px;
+            height: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .cross-one {
+            position: absolute;
+            transform: rotate(45deg);
+        }
+
+        .cross-two {
+            position: absolute;
+            transform: rotate(-45deg);
+        }
+    }
+
+    .form-header {
+
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 39px;
+        color: #FFFFFF;
+        margin-bottom: 24px;
+    }
+
+    label {
+        width: 100%;
+        position: relative;
+        color: #49555B;
+    }
+
+    .form-input {
+        width: calc(100%);
+        padding: 18px;
+        background: #1A2F44;
+        border: 1px solid #49555B;
+        box-sizing: border-box;
+        border-radius: 8px;
+
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        color: #fff;
+        margin-bottom: 24px;
+        position: relative;
+        outline: none;
+
+        &::placeholder {
+
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 18px;
+            color: #fff;
+        }
+
+        &:focus {
+
+            border: 1px solid #d42515;
+        }
+
+        &--warning {
+            border: 1px solid #cc0000;
+            color: #f00;
+        }
+
+
+    }
+
+    .form-textarea {
+        height: 120px;
+        width: calc(100%);
+        padding: 18px;
+        background: #1A2F44;
+        border: 1px solid #49555B;
+        box-sizing: border-box;
+        border-radius: 8px;
+
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        color: #fff;
+        margin-bottom: 24px;
+        position: relative;
+        outline: none;
+
+        &:focus {
+
+            border: 1px solid #d42515;
+        }
+    }
+
+    .form-caption {
+
+        font-weight: 400;
+        font-size: 11px;
+        line-height: 14px;
+        color: #8e8e8e;
+        max-width: 325px;
+    }
+}
+
+.applied-screen {
+    background: #1A2F44;
+    box-shadow: 0px 2px 32px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    position: relative;
+    padding: 48px;
+
+    .form-close {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 22.75px;
+        height: 22.75px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        &:hover {
+
+            .cross-one,
+            .cross-two {
+                background-color: #d42515;
+            }
+        }
+
+        .cross-one,
+        .cross-two {
+            display: block;
+            background-color: #c2c2c2;
+            width: 22.75px;
+            height: 2px;
+
+            transition: all 0.3s ease;
+        }
+
+        .cross-one {
+            position: absolute;
+            transform: rotate(45deg);
+        }
+
+        .cross-two {
+            position: absolute;
+            transform: rotate(-45deg);
+        }
+    }
+
+    .applied-icon {
+        margin-bottom: 24px;
+        width: 72px;
+        height: 72px;
+    }
+
+    .applied-header {
+
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 39px;
+        color: #FFFFFF;
+        margin-bottom: 12px;
+    }
+
+    .applied-subheader {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: #FFFFFF;
+
+    }
+}
+
+.form-button {
+    background: linear-gradient(360deg, #D42515 0%, #E45649 100%);
+    box-shadow: 0px 4px 12px rgba(222, 77, 64, 0.4);
+    border-radius: 8px;
+    padding: 18px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+// =================== FORM SECTION
+// TEMPLATE STYLES SECTION ===================
+.empty--input::after {
+    content: "Поле обязательно";
+
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 14px;
+    color: #f00;
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    display: block;
+}

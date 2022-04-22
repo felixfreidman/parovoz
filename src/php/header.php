@@ -10,7 +10,9 @@
     <script src="https://api-maps.yandex.ru/2.1/?apikey=db32f154-f5b8-442a-bb04-5f55f07bbae7&lang=ru_RU"
         type="text/javascript">
     </script>
-
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 </head>
 
 <body>
+
+    <?php ini_set('display_errors', FALSE); ?>

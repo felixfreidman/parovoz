@@ -8,7 +8,7 @@ $telephone_second = get_field("telephone_second", "option");
 $whatapp = get_field("whatapp", "option");
 $address = get_field("address", "option");
 ?>
-<main class="main main-contact staff-body">
+<main class="main main-contact">
     <div class="breadcrumbs"><a href="<?=home_url();?>">Главная</a> / <a href="<?=home_url();?>/contacts">Контакты</a>
     </div>
     <div class="header-container">

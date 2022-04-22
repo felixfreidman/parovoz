@@ -21,14 +21,43 @@ $(function () {
             },
             success: function (response) {
                 orderButton.textContent = response;
-                setTimeout(eraseLocalStorage, 300);
                 setTimeout(() => {
-                    window.location.href = "https://parovoz.yurin.biz/product/single-product/";
+                    window.location.href = "https://parovoz.yurin.biz/services";
                 }, 1200);
             },
         });
     });
 });
+$(function () {
+    $(".apply-form").on("submit", function (e) {
+        e.preventDefault();
+        var name = $("#reviewName").val();
+        var description = $("#description").val();
+        var orderButton = document.querySelector('.form-button');
+        orderButton.textContent = "Подтверждаем";
+
+        $.ajax({
+            type: "post",
+            url: "/wp-admin/admin-ajax.php",
+            data: {
+                action: "review_form",
+                name: name,
+                description: description,
+            },
+            success: function (response) {
+                $(".dark-layer").html(response);
+                closeAppliedForm();
+            },
+        });
+    });
+});
+function closeAppliedForm() {
+    const closeAppliedForm = document.getElementById("closeAppliedForm");
+    const darkLayer__local = document.querySelector(".dark-layer");
+    closeAppliedForm.addEventListener("click", () => {
+        darkLayer__local.classList.toggle("js--hidden");
+    });
+}
 // Проверяем, что все поля важные заполнены
 $(".order-button").on("click", function () {
     inputAuthorization();
@@ -72,9 +101,3 @@ function deleteWarningSpans() {
 
 deleteWarningSpans();
 
-
-// Чистим локальное хранилище
-function eraseLocalStorage() {
-    localStorage.removeItem("globalCounter");
-    localStorage.removeItem("bookedServices");
-}

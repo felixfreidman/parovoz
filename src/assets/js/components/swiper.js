@@ -9,7 +9,6 @@ const swiper = new Swiper('#workerSwiper', {
     swipeHandler: '.swiper-wrapper',
 });
 const swiperImages = document.querySelectorAll(".bathroom-preview");
-console.log(swiperImages);
 let imgLinkArray = new Array();
 let returnValue = 0;
 swiperImages.forEach(image => {
