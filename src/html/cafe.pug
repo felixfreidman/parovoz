@@ -1,0 +1,65 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="shortcut icon", href="./assets/images/content/favicon.png", type="image/x-icon")
+        link(rel="stylesheet", href="./style.min.css")
+        title Товары
+    body
+        include ./header.pug
+        main.main.main-cafe
+            .breadcrumbs Главная / Кафе 
+            .header-container
+                .header Кафе
+                .header-bar
+            .cafe-description 
+                | В нашем кафе Вы можете испробовать непревзойденные кулинарные шедевры традиционной русской кухни, насладиться интерьером и первоклассным обслуживанием.  После банных процедур сядьте на террасу и закажите любимые блюда.
+                | Наше кафе возьмет на себя все заботы по организации отдыха на самом высоком уровне, будь то бизнес-ланч, деловая встреча партнеров, семейное торжество или романтический ужин. Вы также можете заказать бронь для проведения свадьбы или корпоративного мероприятия.
+            .cafe-images 
+                img(src="./assets/images/content/cafe_img.png", alt="")
+                img(src="./assets/images/content/cafe_img1.png", alt="")
+            .section-header Меню
+            .container-swiper
+                .swiper.cafe-swiper#cafeSwiper 
+                    .swiper-wrapper 
+                        .swiper-slide 
+                            img(src="./assets/images/content/menu_img1.png", alt="")
+                        .swiper-slide 
+
+                            img(src="./assets/images/content/menu_img2.png", alt="")
+                        .swiper-slide 
+
+                            img(src="./assets/images/content/menu_img3.png", alt="")
+                        .swiper-slide 
+
+                            img(src="./assets/images/content/menu_img4.png", alt="")
+                        .swiper-slide 
+
+                            img(src="./assets/images/content/menu_img5.png", alt="")
+                        .swiper-slide 
+                            img(src="./assets/images/content/menu_img6.png", alt="")
+                        .swiper-slide 
+                            img(src="./assets/images/content/menu_img7.png", alt="")
+                        .swiper-slide 
+                            img(src="./assets/images/content/menu_img8.png", alt="")
+                        .swiper-slide 
+                            img(src="./assets/images/content/menu_img9.png", alt="")
+                        .swiper-slide 
+                            img(src="./assets/images/content/menu_img10.png", alt="")
+                        .swiper-slide 
+                            img(src="./assets/images/content/menu_img11.png", alt="")
+                        .swiper-slide 
+                            img(src="./assets/images/content/menu_img12.png", alt="")
+                        .swiper-slide 
+                            img(src="./assets/images/content/menu_img13.png", alt="")
+                        .swiper-slide 
+                            img(src="./assets/images/content/menu_img14.png", alt="")
+                .swiper-pagination
+                .swiper-button-prev 
+                .swiper-button-next
+        include ./footer.pug
+        script(src="./assets/js/jquery.min.js")
+        script(src="./assets/js/plugins.min.js")
+        script(src="https://code.jquery.com/ui/1.13.1/jquery-ui.js")
+        script(src="./assets/js/main.min.js")

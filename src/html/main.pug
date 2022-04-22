@@ -1,0 +1,260 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="shortcut icon", href="./assets/images/content/favicon.png", type="image/x-icon")
+        link(rel="stylesheet", href="./style.min.css")
+        script(src="https://api-maps.yandex.ru/2.1/?apikey=db32f154-f5b8-442a-bb04-5f55f07bbae7&lang=ru_RU" type="text/javascript")
+        title Товары
+    body
+        include ./header.pug
+        main.main.main-main
+            .main__greeting(style='background: linear-gradient(360deg, #1A2F44 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/main_bg.png)')
+                .greeting-container 
+                    .greeting-place 
+                        img(src="./assets/images/content/map_marker.svg", alt="")
+                        | Екатеринбург
+                    .greeting-header Русские бани ПАРОВОЗ 
+                    .greeting-caption Для семейных выходных, встреч с друзьями и близкими
+                    .greeting-benefits 
+                        .benefits-item 
+                            .benefits-header 9 бань
+                            .benefits-subheader В сосновом бору
+                            .benefits-bar.benefits-bar--red
+                        .benefits-item 
+                            .benefits-header ТОП-3
+                            .benefits-subheader Среди бань города
+                            .benefits-bar
+                        .benefits-item 
+                            .benefits-header от 4 до 15 
+                            .benefits-subheader Вместимость бань
+                            .benefits-bar
+            .main__return 
+                .header-container
+                    .header ПАРОВОЗ - место, в которое хочется возвращаться 
+                    .header-bar
+                .return-caption Русские бани, находящиеся в одном километре от Екатеринбурга, в сосновом бору со свежим воздухом и запахом леса
+                .return-container 
+                    .return-container__benefits 
+                        .benefit-item 
+                            .benefit-logo 
+                                img(src="./assets/images/content/benefit_plant.svg", alt="")
+                            .benefit-bar 
+                            .benefit-name Березовые, дубовые веники
+                        .benefit-item 
+                            .benefit-logo 
+                                img(src="./assets/images/content/benefit_people.svg", alt="")
+                            .benefit-bar 
+                            .benefit-name Парильщики и массажисты
+                        .benefit-item 
+                            .benefit-logo 
+                                img(src="./assets/images/content/benefit_fire.svg", alt="")
+                            .benefit-bar 
+                            .benefit-name Мангал
+                        .benefit-item 
+                            .benefit-logo 
+                                img(src="./assets/images/content/benefit_shower.svg", alt="")
+                            .benefit-bar 
+                            .benefit-name Тапочки и гель для душа
+                        .benefit-item 
+                            .benefit-logo 
+                                img(src="./assets/images/content/benefit_tv.svg", alt="")
+                            .benefit-bar 
+                            .benefit-name Караоке Телевизор
+                        .benefit-item 
+                            .benefit-logo 
+                                img(src="./assets/images/content/benefit_car.svg", alt="")
+                            .benefit-bar 
+                            .benefit-name Бесплатная парковка на территории
+                    .return-container__image 
+                        img(src="./assets/images/content/main_bg1.png", alt="")
+            .main__map 
+                .header-container
+                    .header Карта наших бань
+                    .header-bar
+                img(src="./assets/images/content/map_bg.svg", alt="")
+            .main__feedback 
+                .header-container
+                    .header Отзывы
+                    .header-bar
+            .main__about 
+                .header-container
+                    .header Подробнее о банях
+                    .header-bar
+                .about-table 
+                    .about-table__header 
+                        .header-type Баня
+                        .header-capacity
+                            img(src="./assets/images/content/capacity.svg", alt="")
+                            | Вместимость
+                        .header-conv 
+                            img(src="./assets/images/content/conv.svg", alt="")
+                            | Удобства
+                        .header-equip
+                            img(src="./assets/images/content/equip.svg", alt="")
+                            | Оборудование
+                        .header-day-tariff Тариф “День” 06:00 - 16:00, за час
+                        .header-evening-tariff Тариф “День” 06:00 - 16:00, за час
+                    .about-table__content 
+                        a(href="bathroom.html").about-table__item
+                            .item-type
+                                img(src="./assets/images/content/about_photo.png", alt="")
+                                | ст. Уральская
+                            .item-capacity 
+                                .circle 15
+                            .item-conv Сеновал 2 комнаты
+                            .item-equip 
+                                .item Купель SPA бассейн
+                                .add-price (+1000 ₽)
+                            .item-day-tariff 
+                                .sale-price 3 900 ₽
+                                .real-price 4 900 ₽ 
+                            .item-evening-tariff 
+                                .sale-price 3 900 ₽
+                                .real-price 4 900 ₽ 
+                        .about-table__item
+                            .item-type
+                                img(src="./assets/images/content/about_photo.png", alt="")
+                                | ст. Уральская
+                            .item-capacity 
+                                .circle 15
+                            .item-conv Сеновал 2 комнаты
+                            .item-equip 
+                                .item Купель SPA бассейн
+                                .add-price (+1000 ₽)
+                            .item-day-tariff 
+                                .sale-price 3 900 ₽
+                                .real-price 4 900 ₽ 
+                            .item-evening-tariff 
+                                .sale-price 3 900 ₽
+                                .real-price 4 900 ₽ 
+                        .about-table__item
+                            .item-type
+                                img(src="./assets/images/content/about_photo.png", alt="")
+                                | ст. Уральская
+                            .item-capacity 
+                                .circle 15
+                            .item-conv Сеновал 2 комнаты
+                            .item-equip 
+                                .item Купель SPA бассейн
+                                .add-price (+1000 ₽)
+                            .item-day-tariff 
+                                .sale-price 3 900 ₽
+                                .real-price 4 900 ₽ 
+                            .item-evening-tariff 
+                                .sale-price 3 900 ₽
+                                .real-price 4 900 ₽ 
+                        .about-table__item
+                            .item-type
+                                img(src="./assets/images/content/about_photo.png", alt="")
+                                | ст. Уральская
+                            .item-capacity 
+                                .circle 15
+                            .item-conv Сеновал 2 комнаты
+                            .item-equip 
+                                .item Купель SPA бассейн
+                                .add-price (+1000 ₽)
+                            .item-day-tariff 
+                                .sale-price 3 900 ₽
+                                .real-price 4 900 ₽ 
+                            .item-evening-tariff 
+                                .sale-price 3 900 ₽
+                                .real-price 4 900 ₽ 
+                        .about-table__item
+                            .item-type
+                                img(src="./assets/images/content/about_photo.png", alt="")
+                                | ст. Уральская
+                            .item-capacity 
+                                .circle 15
+                            .item-conv Сеновал 2 комнаты
+                            .item-equip 
+                                .item Купель SPA бассейн
+                                .add-price (+1000 ₽)
+                            .item-day-tariff 
+                                .sale-price 3 900 ₽
+                                .real-price 4 900 ₽ 
+                            .item-evening-tariff 
+                                .sale-price 3 900 ₽
+                                .real-price 4 900 ₽ 
+                        .about-table__item
+                            .item-type
+                                img(src="./assets/images/content/about_photo.png", alt="")
+                                | ст. Уральская
+                            .item-capacity 
+                                .circle 15
+                            .item-conv Сеновал 2 комнаты
+                            .item-equip 
+                                .item Купель SPA бассейн
+                                .add-price (+1000 ₽)
+                            .item-day-tariff 
+                                .sale-price 3 900 ₽
+                                .real-price 4 900 ₽ 
+                            .item-evening-tariff 
+                                .sale-price 3 900 ₽
+                                .real-price 4 900 ₽ 
+
+            .main__actions 
+                .header-container
+                    .header Акции
+                    .header-bar
+                .action-swiper-container 
+                    .swiper.action-swiper#actionSwiper 
+                        .swiper-wrapper 
+                            .swiper-slide 
+                                .action-container
+                                    .action-container__column 
+                                        .action-container__due до 23 февраля
+                                        .action-container__header Скидка именинникам 20%
+                                        .action-container__caption Скидка действует на все бани, представленные в загородном клубе. Предложение действует в день рождения, а также 7 дней до и после дня рождения
+                                    .action-container__image 
+                                        img(src="./assets/images/content/actions.svg", alt="") 
+                            .swiper-slide 
+                                .action-container
+                                    .action-container__column 
+                                        .action-container__due до 23 февраля
+                                        .action-container__header Черная пятница
+                                        .action-container__caption Скидка действует на баню ст. “Уральская” по тарифу “День” с 6:00 до 16:00 по пятницам.
+                                    .action-container__image 
+                                        img(src="./assets/images/content/actions.svg", alt="") 
+                            .swiper-slide 
+                                .action-container
+                                    .action-container__column 
+                                        .action-container__due до 23 февраля
+                                        .action-container__header Черная пятница
+                                        .action-container__caption Скидка действует на все бани, представленные в загородном клубе. Предложение действует в день рождения, а также 7 дней до и после дня рождения
+                                    .action-container__image 
+                                        img(src="./assets/images/content/actions.svg", alt="") 
+                    .swiper-button-prev 
+                    .swiper-button-next
+            .main__contacts
+                .header-container
+                    .header Контакты
+                    .header-bar
+                .contact-container 
+                    .contact-column 
+                        .column-header Адреса
+                        .column-adress г. Екатеринбург, ул. Летняя, 20
+                        .column-caption Ежедневно, круглосуточно
+                    .contact-column 
+                        .column-header Телефон
+                        a(href="tel:#").column-link + 7 982 694 85 35
+                        a(href="tel:#").column-link + 7 982 694 85 35
+                    .contact-column 
+                        .column-header Социальные сети
+                        .social-container 
+                            .social-circle 
+                                img(src="./assets/images/content/instaDark.svg", alt="")
+                            .social-circle 
+                                img(src="./assets/images/content/vkDark.svg", alt="")
+                            .social-circle 
+                                img(src="./assets/images/content/whatApp_white.svg", alt="")
+            .map-container 
+                #map
+
+
+        include ./footer.pug
+        script(src="./assets/js/jquery.min.js")
+        script(src="./assets/js/plugins.min.js")
+        script(src="https://code.jquery.com/ui/1.13.1/jquery-ui.js")
+        script(src="./assets/js/main.min.js")

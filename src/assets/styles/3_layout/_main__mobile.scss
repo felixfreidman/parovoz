@@ -3,8 +3,62 @@
         padding: 47px 100px 70px;
         width: calc(100% - 200px);
     }
+
     .footer-line {
         padding: 0px 100px 20px;
         width: calc(100% - 200px);
     }
+
+    header.header {
+        display: flex;
+        padding: 0 100px;
+        width: calc(100% - 200px);
+
+        .header__logo {
+            margin-right: 40px;
+        }
+    }
+
+    .main {
+        &__greeting {
+            display: flex;
+            align-content: inherit;
+            width: calc(100% - 200px);
+
+            height: calc(80vh - 218px);
+            padding: 218px 100px 0;
+        }
+
+        &__return {
+            width: calc(100% - 200px);
+            padding: 96px 100px 28px;
+        }
+
+        &__map {
+            width: calc(100% - 200px);
+            padding: 96px 100px 28px;
+        }
+
+        &__feedback {
+            width: calc(100% - 200px);
+            padding: 96px 100px 28px;
+        }
+
+        &__about {
+            width: calc(100% - 200px);
+            padding: 96px 100px 28px;
+        }
+
+        &__actions {
+            width: calc(100% - 200px);
+            padding: 96px 100px 28px;
+        }
+
+        &__contacts {
+            width: calc(100% - 200px);
+            padding: 96px 100px 28px;
+        }
+    }
+
+
 }

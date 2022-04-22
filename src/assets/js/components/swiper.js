@@ -36,3 +36,40 @@ const fancySwiper = new Swiper('#fancySwiper', {
         },
     }
 });
+
+const cafeSwiper = new Swiper('#cafeSwiper', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: false,
+    speed: 400,
+    spaceBetween: 24,
+    effect: 'cards',
+    slidesPerView: '2',
+    // swipeHandler: '.swiper-wrapper',
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+    },
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
+
+const actionSwiper = new Swiper('#actionSwiper', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+    speed: 400,
+    spaceBetween: 24,
+    effect: 'cards',
+    slidesPerView: '2',
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
