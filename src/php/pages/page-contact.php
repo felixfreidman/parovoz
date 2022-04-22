@@ -36,7 +36,8 @@ $address = get_field("address", "option");
                         src="<?php echo get_template_directory_uri() . '/assets/images/content/vkDark.svg'?>" alt="" />
                 </a>
                 <a class="social-circle" href="https://wa.me/<?=$whatapp?>"> <img
-                        src="<?php echo get_template_directory_uri() . '/assets/images/content/whatApp.svg'?>" alt="" />
+                        src="<?php echo get_template_directory_uri() . '/assets/images/content/whatApp_white.svg'?>"
+                        alt="" />
                 </a>
             </div>
         </div>

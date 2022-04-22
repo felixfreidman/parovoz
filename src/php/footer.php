@@ -55,6 +55,10 @@ $address = get_field("address", "option");
             <a class="social" href="https://vk.com/<?=$vk?>"> <img
                     src="<?php echo get_template_directory_uri() . '/assets/images/content/vk.svg'?>"" alt=" vk" />
             </a>
+            <a class="social" href="https://whatapp.com/<?=$whatapp?>"> <img
+                    src="<?php echo get_template_directory_uri() . '/assets/images/content/whatApp.svg'?>"" alt="
+                    whatapp" />
+            </a>
         </div>
     </div>
 </footer>
@@ -66,6 +70,22 @@ $address = get_field("address", "option");
     <form class="form apply-form" id="applyForm">
         <div class="form-close" id="closeForm"><span class="cross-one"> </span><span class="cross-two"></span></div>
         <div class="form-header">Оставить отзыв</div>
+        <div class="form-row">
+            <select class="controls-section__select" id="bathTypeSelect" name="bathType">
+                <option value="Ура">Уральская</option>
+                <option value="Охо">Охотничья</option>
+                <option value="Ямс">Ямская</option>
+                <option value="Рыб">Рыбацкая</option>
+                <option value="Раз">Раздольная</option>
+                <option value="Сем">Семейная</option>
+                <option value="Сиб">Сибирская</option>
+                <option value="Лес" checked>Лесная</option>
+                <option value="Хут">Хуторок</option>
+            </select>
+            <label for="starRating">Ваша оценка?
+                <input type="text" name='starRating' id='starRatingInput' value='5'>
+            </label>
+        </div>
         <label for="description">Комментарий</label><br />
         <textarea id="description" tabindex="3" name="description" rows="6" class="form-textarea"></textarea>
         <label for="reviewName"> Имя

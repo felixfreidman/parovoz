@@ -7,10 +7,12 @@
                 <use href="#stars-full-star"></use>
                 <use href="#stars-full-star"></use>
                 <use href="#stars-full-star"></use>
-                <use href="#stars-empty-star"></use>
+                <use href="#stars-full-star"></use>
             </svg>
-            <div class="amount">4</div>
+            <div class="amount">5</div>
         </div>
+
+        <div class="feedback-item__caption">Уральская</div>
     </div>
     <div class="feedback-item__content"><?php the_content(); ?> </div>
 </div>

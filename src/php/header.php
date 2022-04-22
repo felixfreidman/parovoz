@@ -16,3 +16,28 @@
 <body>
 
     <?php ini_set('display_errors', FALSE); ?>
+    <header class="header">
+        <div class="header__logo"> <img
+                src="<?php echo get_template_directory_uri() . '/assets/images/content/logo_header.svg'?>" alt="" />
+        </div>
+        <div class="header__navigation"> <a class="navigation-link" href="<?=home_url();?>">Главная</a>
+            <div class="navigation-link complex-link">Бани<div class="navigation-box"> <a class="navigation-box__link"
+                        href="">Уральская</a><a class="navigation-box__link" href="">Охотничья</a><a
+                        class="navigation-box__link" href="">Ямская</a><a class="navigation-box__link"
+                        href="">Рыбацкая</a><a class="navigation-box__link" href="">Раздольная</a><a
+                        class="navigation-box__link" href="">Семейная</a><a class="navigation-box__link"
+                        href="">Сибирская</a><a class="navigation-box__link"
+                        href="<?=home_url();?>/bathroom">Лесная</a><a class="navigation-box__link" href="">Хуторок</a>
+                </div>
+            </div><a class="navigation-link" href="<?=home_url();?>/services">Услуги</a>
+            <a class="navigation-link" href="<?=home_url();?>/cafe">Кафе</a>
+            <a class="navigation-link" href="<?=home_url();?>/articles">PRO баню</a>
+            <a class="navigation-link" href="<?=home_url();?>/staff">Товары</a>
+            <a class="navigation-link" href="<?=home_url();?>/contacts">Контакты</a>
+        </div>
+        <a class="header__book" href="<?=home_url();?>/cart"><img
+                src="<?php echo get_template_directory_uri() . '/assets/images/content/cart_image.svg'?>" alt="" />
+            <div class="book-header">Мое бронирование</div><span
+                class="book-counter"><?php  echo count(WC()->cart->get_cart());?></span>
+        </a>
+    </header>

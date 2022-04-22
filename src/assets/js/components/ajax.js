@@ -33,6 +33,8 @@ $(function () {
         e.preventDefault();
         var name = $("#reviewName").val();
         var description = $("#description").val();
+        var rating = $("#starRatingInput").val();
+        var bathType = $("#bathTypeSelect").val();
         var orderButton = document.querySelector('.form-button');
         orderButton.textContent = "Подтверждаем";
 
@@ -43,6 +45,8 @@ $(function () {
                 action: "review_form",
                 name: name,
                 description: description,
+                rating: rating,
+                bathType: bathType
             },
             success: function (response) {
                 $(".dark-layer").html(response);

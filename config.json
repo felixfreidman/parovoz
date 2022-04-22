@@ -1,13 +1,13 @@
 {
     "build": {
-        "php": "wp/wp-content/themes/parovoz/",
-        "html": "wp/wp-content/themes/parovoz/html/",
-        "js": "wp/wp-content/themes/parovoz/assets/js/",
-        "css": "wp/wp-content/themes/parovoz/",
+        "php": "wp/wp-content/themes/storefront/",
+        "html": "wp/wp-content/themes/storefront/html/",
+        "js": "wp/wp-content/themes/storefront/assets/js/",
+        "css": "wp/wp-content/themes/storefront/",
         "imgBase": "src/assets/images/",
-        "img": "wp/wp-content/themes/parovoz/assets/images/",
-        "fonts": "wp/wp-content/themes/parovoz/assets/fonts/",
-        "sprites": "wp/wp-content/themes/parovoz/assets/sprites/"
+        "img": "wp/wp-content/themes/storefront/assets/images/",
+        "fonts": "wp/wp-content/themes/storefront/assets/fonts/",
+        "sprites": "wp/wp-content/themes/storefront/assets/sprites/"
     },
     "src": {
         "php": "src/php/**/*.php",
@@ -49,10 +49,10 @@
         },
         "fonts": "src/assets/fonts/**/*.*"
     },
-    "clean": "./wp/wp-content/themes/parovoz",
+    "clean": "./wp/wp-content/themes/storefront",
     "server": {
         "server": {
-            "baseDir": "./wp/wp-content/themes/parovoz"
+            "baseDir": "./wp/wp-content/themes/storefront"
         },
         "notify": false,
         "open": true,

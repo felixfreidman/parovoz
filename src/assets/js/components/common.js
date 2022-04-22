@@ -1,3 +1,4 @@
+
 Storage.prototype.setObj = function (key, obj) {
   return this.setItem(key, JSON.stringify(obj))
 }
@@ -163,9 +164,9 @@ if (document.querySelector(".add-feedback")) {
     }
   };
 }
+const ns = 'http://www.w3.org/2000/svg';
 
-
-if (window.location.href.includes("feedback")) {
+if (document.querySelector('.feedback-item')) {
   const reviews = document.querySelectorAll('.feedback-item');
   reviews.forEach(review => {
     let review_content = review.querySelector('.feedback-item__content').textContent;
@@ -207,26 +208,60 @@ if (window.location.href.includes("feedback")) {
         bath_type_name.textContent = 'Хуторок'
         break;
     }
+    const reviewStars = review.querySelector('.feedback-item__rating').querySelector("svg");
+
+    switch (star_rating) {
+      case '1':
+        for (let i = 0; i < 5 - parseInt(star_rating); i++) {
+          reviewStars.removeChild(review.querySelector('svg use'));
+        }
+        for (let i = 0; i < 5 - parseInt(star_rating); i++) {
+          const useElement = document.createElementNS(ns, 'use');
+          useElement.setAttribute('href', '#stars-empty-star');
+          reviewStars.appendChild(useElement)
+        }
+        break;
+      case '2':
+        for (let i = 0; i < 5 - parseInt(star_rating); i++) {
+          reviewStars.removeChild(review.querySelector('svg use'));
+        }
+        for (let i = 0; i < 5 - parseInt(star_rating); i++) {
+          const useElement = document.createElementNS(ns, 'use');
+          useElement.setAttribute('href', '#stars-empty-star');
+          reviewStars.appendChild(useElement)
+        }
+        break;
+      case '3':
+        for (let i = 0; i < 5 - parseInt(star_rating); i++) {
+          reviewStars.removeChild(review.querySelector('svg use'));
+        }
+        for (let i = 1; i <= 5 - parseInt(star_rating); i++) {
+          let useElement = document.createElementNS(ns, 'use');
+          useElement.setAttribute('href', '#stars-empty-star');
+          reviewStars.appendChild(useElement)
+        }
+        break;
+      case '4':
+        for (let i = 0; i < 5 - parseInt(star_rating); i++) {
+          reviewStars.removeChild(review.querySelector('svg use'));
+        }
+        for (let i = 1; i <= 5 - parseInt(star_rating); i++) {
+          const useElement = document.createElementNS(ns, 'use');
+          useElement.setAttribute('href', '#stars-empty-star');
+          reviewStars.appendChild(useElement)
+        }
+        break;
+      case '5':
+        for (let i = 0; i < 5 - parseInt(star_rating); i++) {
+          reviewStars.removeChild(review.querySelector('svg use'));
+        }
+        for (let i = 1; i <= 5 - parseInt(star_rating); i++) {
+          const useElement = document.createElementNS(ns, 'use');
+          useElement.setAttribute('href', '#stars-empty-star');
+          reviewStars.appendChild(useElement)
+        }
+        break;
+    }
   })
 }
-ymaps.ready(init);
 
-function init() {
-  var myMap = new ymaps.Map('map', {
-    center: [56.81122355, 60.72763708],
-    zoom: 14
-  }),
-
-    myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-      balloonContent: 'г. Екатеринбург, ул. Летняя, 20',
-      iconCaption: 'г. Екатеринбург, ул. Летняя, 20',
-    }, {
-      iconLayout: 'default#image',
-      iconImageHref: "./assets/images/content/logo.svg",
-      iconImageSize: [30, 42],
-      iconImageOffset: [-5, -38],
-    })
-
-  myMap.geoObjects
-    .add(myPlacemark);
-}

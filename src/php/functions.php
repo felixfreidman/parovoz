@@ -127,19 +127,23 @@ function ajax_form()
 }
 
 
-add_action('wp_ajax_nopriv_ajax_form', 'review_form');
-add_action('wp_ajax_ajax_form', 'review_form');
+add_action('wp_ajax_nopriv_ajax_form', 'ajax_form');
+add_action('wp_ajax_ajax_form', 'ajax_form');
+
 
 function review_form()
 {
     $name = $_REQUEST['name'];
     $description = $_REQUEST['description'];
+    $rating = $_REQUEST['rating'];
+    $bathType = $_REQUEST['bathType'];
+    $content = $description . $rating . 'star' . $bathType . 'bath';
 
     
         // Add the content of the form to $post as an array
         $new_post = array(
             'post_title'    => $name,
-            'post_content'  => $description,
+            'post_content'  => $content,
             'post_status'   => 'publish', 
             'post_type' => 'reviews' 
         );
@@ -167,8 +171,8 @@ function review_form()
     
 }
 
-add_action('wp_ajax_nopriv_ajax_form', 'ajax_form');
-add_action('wp_ajax_ajax_form', 'ajax_form');
+add_action('wp_ajax_nopriv_review_form', 'review_form');
+add_action('wp_ajax_review_form', 'review_form');
 remove_filter('the_content', 'wpautop');
 remove_filter('the_excerpt', 'wpautop');
 
