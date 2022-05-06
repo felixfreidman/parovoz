@@ -9,6 +9,10 @@
         width: calc(100% - 200px);
     }
 
+    .modal-container {
+        right: 100px;
+    }
+
     header.header {
         display: flex;
         padding: 0 100px;
@@ -59,6 +63,4 @@
             padding: 96px 100px 28px;
         }
     }
-
-
 }

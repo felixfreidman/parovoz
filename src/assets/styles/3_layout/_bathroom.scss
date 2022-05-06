@@ -157,28 +157,7 @@
                         color: #919FA7;
                     }
 
-                    .book-button {
-                        background: linear-gradient(360deg, #D42515 0%, #E45649 100%);
-                        box-shadow: 0px 4px 12px rgba(222, 77, 64, 0.4);
-                        border-radius: 8px;
-                        font-weight: 700;
-                        font-size: 14px;
-                        line-height: 17px;
-                        padding: 18px 0px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        width: 100%;
-                        text-align: center;
-                        color: #FFFFFF;
-                        margin-top: 43px;
-                        margin-bottom: 15px;
-                        transition: all 0.3s ease;
 
-                        &:hover {
-                            transform: scale(1.1);
-                        }
-                    }
 
                     &__sale {
                         display: flex;
@@ -374,8 +353,6 @@
                 margin-right: 64px;
 
                 .feedback-add {
-                    background: linear-gradient(360deg, #D42515 0%, #E45649 100%);
-                    box-shadow: 0px 4px 12px rgba(222, 77, 64, 0.4);
                     border-radius: 8px;
                     font-weight: 700;
                     font-size: 14px;
@@ -385,7 +362,6 @@
                     align-items: center;
                     display: flex;
                     justify-content: center;
-                    color: #FFFFFF;
                     transition: all 0.3s ease;
 
                     &:hover {
@@ -564,5 +540,34 @@ use {
 
     &:nth-child(5) {
         transform: translate(80px);
+    }
+}
+
+.book-button {
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    padding: 18px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 43px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid #D42515;
+    border-radius: 8px;
+    width: 100%;
+
+    &:hover {
+        color: #D42515;
+    }
+
+    &:active {
+        color: #1a2f44;
+        background-color: #fff;
+        border: none !important;
     }
 }

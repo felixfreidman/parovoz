@@ -46,21 +46,30 @@ $address = get_field("address", "option");
 <div class="map-container">
     <div id="map"></div>
 </div>
+<?php 
+    $map_icon = get_field('map_icon');
+    $map_text = get_field('map_text');
+    $map_center = get_field('map_center');
+    $map_zoom = get_field('map_zoom');
+
+
+?>
+
 <script>
 ymaps.ready(init);
 
 function init() {
     var myMap = new ymaps.Map('map', {
-            center: [56.81122355, 60.72763708],
-            zoom: 14
+            center: [<?=$map_center?>],
+            zoom: <?=$map_zoom?>
         }),
 
         myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-            balloonContent: 'г. Екатеринбург, ул. Летняя, 20',
-            iconCaption: 'г. Екатеринбург, ул. Летняя, 20',
+            balloonContent: '<?=$map_text?>',
+            iconCaption: '<?=$map_text?>',
         }, {
             iconLayout: 'default#image',
-            iconImageHref: "<?php echo get_template_directory_uri() . '/assets/images/content/logo.svg'?>",
+            iconImageHref: "<?=$map_icon?>",
             iconImageSize: [30, 42],
             iconImageOffset: [-5, -38],
         })

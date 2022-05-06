@@ -21,6 +21,8 @@ $(function () {
             },
             success: function (response) {
                 orderButton.textContent = response;
+                localStorage.removeItem("globalCounter")
+                localStorage.removeItem("bookedServices")
                 setTimeout(() => {
                     window.location.href = "https://parovoz.yurin.biz/services";
                 }, 1200);
@@ -51,6 +53,10 @@ $(function () {
             success: function (response) {
                 $(".dark-layer").html(response);
                 closeAppliedForm();
+                console.log('what?');
+                setTimeout(() => {
+                    window.location.href = window.location.href;
+                }, 800)
             },
         });
     });

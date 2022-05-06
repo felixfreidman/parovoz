@@ -22,6 +22,7 @@ const fancySwiper = new Swiper('#fancySwiper', {
     loop: true,
     speed: 500,
     spaceBetween: 34,
+    autoplay: true,
     effect: 'fade',
     fadeEffect: {
         crossFade: true
@@ -40,7 +41,7 @@ const fancySwiper = new Swiper('#fancySwiper', {
 const cafeSwiper = new Swiper('#cafeSwiper', {
     // Optional parameters
     direction: 'horizontal',
-    loop: false,
+    loop: true,
     speed: 400,
     spaceBetween: 24,
     effect: 'cards',

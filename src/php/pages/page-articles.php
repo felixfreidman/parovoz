@@ -1,11 +1,13 @@
 <?php 
 /* Template Name: Страница Статьи */
 get_header();
+$currentPage = get_query_var('paged');
 $my_articles = array(
     'post_type' => 'article',
-    'posts_per_page' => -1,
+    'posts_per_page' => 15,
     'orderby' => 'date',
-    'order' => 'ASC',
+    'order' => 'DESC',
+    'paged' => $currentPage,
 );
 
 $loop_articles = new WP_Query($my_articles);
@@ -25,9 +27,21 @@ $loop_articles = new WP_Query($my_articles);
                 get_template_part('template/article-card');
                 $i++;
                 endwhile;
-                wp_reset_postdata();
+                // next_post_link('', $loop_articles->max_num_pages);
+                // previous_post_link();
+               
         ?>
     </div>
+
+    <div class="articles-pagination">
+        <?php 
+     echo paginate_links( array(
+        'total' => $loop_articles->max_num_pages
+    ) );
+    wp_reset_postdata();
+    ?>
+    </div>
+
 </main>
 <?php 
 get_footer();

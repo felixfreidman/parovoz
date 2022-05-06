@@ -183,3 +183,19 @@ function wc_checkout_description_so_15127954( $other_data, $cart_item )
     $other_data[] = array( 'name' =>  $post_data->post_excerpt );
     return $other_data;
 }
+
+add_action( 'woocommerce_after_shop_loop_item', 'woo_show_excerpt_shop_page', 5 );
+function woo_show_excerpt_shop_page() {
+	global $product;
+
+	echo $product->post->post_excerpt;
+}
+
+wp_link_pages( array(
+	'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentyfifteen' ) . '</span>',
+	'after'       => '</div>',
+	'link_before' => '<span>',
+	'link_after'  => '</span>',
+	'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'twentyfifteen' ) . ' </span>%',
+	'separator'   => '<span class="screen-reader-text">, </span>',
+) );

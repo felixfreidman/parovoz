@@ -1,10 +1,4 @@
 
-Storage.prototype.setObj = function (key, obj) {
-  return this.setItem(key, JSON.stringify(obj))
-}
-Storage.prototype.getObj = function (key) {
-  return JSON.parse(this.getItem(key))
-}
 
 if (document.querySelector(".article-card")) {
   const cardsArray = document.querySelectorAll(".article-card");
@@ -40,11 +34,29 @@ function updateUserOrderField() {
   userOrderList.forEach(order => {
     const orderName = order.querySelector(".order-item__name").textContent;
     const orderPrice = order.querySelector(".order-item__price").textContent;
-    orderString = `${orderString} ${orderName} - ${orderPrice}.  `
+    if (orderName.includes('Станция')) {
+      let orderID = order.id.match(/\d+/g);
+      console.log(orderID);
+      orderID = orderID[0];
+      console.log(orderID);
+      let cardItem = document.getElementById(`service${orderID}`);
+      console.log(cardItem);
+      console.log(cardItem.querySelector('.order-input').value);
+      let dateValue = cardItem.querySelector('[name="orderDate"]').value;
+      let selectValue = cardItem.querySelector('[name="orderDateTime"]').value;
+      let peopleValue = cardItem.querySelector('[name="orderAmountPeople"]').value;
+      let hourValue = cardItem.querySelector('[name="orderTotalTime"]').value;
+
+      orderString = `${orderString} ${orderName} - ${orderPrice}. Дата бронирования: ${dateValue};  Время заезда: ${selectValue}; Количество человек: ${peopleValue};   Количество часов: ${hourValue};   
+      `
+    } else {
+      orderString = `${orderString} ${orderName} - ${orderPrice}.   `
+    }
   });
   let totalString = `Всего: ${totalPrice}`;
   orderString += totalString;
   userOrderField.value = orderString;
+  console.log(userOrderField.value);
 }
 
 
@@ -66,21 +78,34 @@ function makeCardsLink() {
   cards.forEach(card => {
     card.addEventListener('click', () => {
       const link = card.dataset.href;
-      window.location.href = link;
+      if (!window.location.href.includes('staff')) window.location.href = link;
     })
   })
 }
 
 
 
-if (window.location.href.includes("cart")) {
+if (window.location.href.includes("/cart")) {
   var orderList = document.querySelector(".order-list");
   const bookedItems = document.querySelectorAll(".order-container")
+  let serviceName = '';
+  let servicePrice = '';
   bookedItems.forEach((order, index) => {
-    const serviceName = order.querySelector('.order-header').querySelector("a").textContent;
-    let servicePrice = order.querySelector('.order-cost').querySelector("span").querySelector("bdi").textContent;
-    servicePrice = servicePrice.match(/\d+/g);
-    servicePrice = servicePrice[0] + '';
+    if (order.querySelector('.order-header').querySelector("a")) {
+      serviceName = order.querySelector('.order-header').querySelector("a").textContent;
+    } else {
+      serviceName = order.querySelector('.order-header').textContent;
+    }
+    if (order.querySelector('.order-cost').querySelector("span")) {
+      servicePrice = order.querySelector('.order-cost').querySelector("span").querySelector("bdi").textContent;
+      servicePrice = servicePrice.match(/\d+/g);
+      servicePrice = servicePrice[0];
+    } else {
+      servicePrice = order.querySelector('.order-cost').textContent;
+      servicePrice = servicePrice.match(/\d+/g);
+      servicePrice = servicePrice[0] + servicePrice[1];
+    }
+
     const serviceCounter = index;
 
     const totalOrder = createServiceTotal(serviceName, servicePrice, index);
@@ -107,7 +132,23 @@ if (window.location.href.includes("cart")) {
     userOrderList.forEach(order => {
       const orderName = order.querySelector(".order-item__name").textContent;
       const orderPrice = order.querySelector(".order-item__price").textContent;
-      orderString = `${orderString} ${orderName} - ${orderPrice}.  `
+      if (orderName.includes('Станция')) {
+        let orderID = order.id.match(/\d+/g);
+        console.log(orderID);
+        orderID = orderID[0];
+        console.log(orderID);
+        let cardItem = document.getElementById(`service${orderID}`);
+        console.log(cardItem);
+        console.log(cardItem.querySelector('.order-input').value);
+        let dateValue = cardItem.querySelector('[name="orderDate"]').value;
+        let selectValue = cardItem.querySelector('[name="orderDateTime"]').value;
+        let peopleValue = cardItem.querySelector('[name="orderAmountPeople"]').value;
+        let hourValue = cardItem.querySelector('[name="orderTotalTime"]').value;
+
+        orderString = `${orderString} ${orderName} - ${orderPrice}. Дата бронирования: ${dateValue};  Время заезда: ${selectValue}; Количество человек: ${peopleValue};   Количество часов: ${hourValue}; `
+      } else {
+        orderString = `${orderString} ${orderName} - ${orderPrice}.   `
+      }
     });
     let totalString = `Всего: ${totalPrice}`;
     orderString += totalString;
@@ -147,6 +188,26 @@ if (window.location.href.includes("cart")) {
 if (document.querySelector(".add-feedback")) {
   const darkLayer = document.querySelector(".dark-layer");
   const applyBtn = document.querySelector(".add-feedback");
+  const closeForm = document.getElementById("closeForm");
+  const applyFormScreen = document.getElementById("applyForm");
+  applyBtn.addEventListener("click", () => {
+
+    darkLayer.classList.toggle("js--hidden");
+  })
+
+  closeForm.addEventListener("click", () => {
+    darkLayer.classList.toggle("js--hidden");
+  });
+
+  window.onclick = function (event) {
+    if (event.target == darkLayer) {
+      darkLayer.classList.toggle("js--hidden");
+    }
+  };
+}
+if (document.querySelector(".feedback-add")) {
+  const darkLayer = document.querySelector(".dark-layer");
+  const applyBtn = document.querySelector(".feedback-add");
   const closeForm = document.getElementById("closeForm");
   const applyFormScreen = document.getElementById("applyForm");
   applyBtn.addEventListener("click", () => {
@@ -265,3 +326,223 @@ if (document.querySelector('.feedback-item')) {
   })
 }
 
+
+
+if (document.getElementById("lesBathName")) {
+  const lesBathName = document.getElementById("lesBathName");
+  lesBathName.addEventListener("click", () => {
+    let link = window.location.href;
+    link += '/bathroom';
+    window.location.href = link
+  })
+  const hutBathName = document.getElementById("hutBathName");
+  hutBathName.addEventListener("click", () => {
+    let link = window.location.href;
+    link += '/hutBath';
+    window.location.href = link
+  })
+  const hutUralName = document.getElementById("hutUralName");
+  hutUralName.addEventListener("click", () => {
+    let link = window.location.href;
+    link += '/uralBath';
+    window.location.href = link
+  })
+  const razBathName = document.getElementById("razBathName");
+  razBathName.addEventListener("click", () => {
+    let link = window.location.href;
+    link += '/razBath';
+    window.location.href = link
+  })
+  const ribBathName = document.getElementById("ribBathName");
+  ribBathName.addEventListener("click", () => {
+    let link = window.location.href;
+    link += '/ribBath';
+    window.location.href = link
+  })
+  const famBathName = document.getElementById("famBathName");
+  famBathName.addEventListener("click", () => {
+    let link = window.location.href;
+    link += '/famBath';
+    window.location.href = link
+  })
+  const yamBathName = document.getElementById("yamBathName");
+  yamBathName.addEventListener("click", () => {
+    let link = window.location.href;
+    link += '/yamBath';
+    window.location.href = link
+  })
+  const sibBathName = document.getElementById("sibBathName");
+  sibBathName.addEventListener("click", () => {
+    let link = window.location.href;
+    link += '/sibBath';
+    window.location.href = link
+  })
+  const ohotBathName = document.getElementById("ohotBathName");
+  ohotBathName.addEventListener("click", () => {
+    let link = window.location.href;
+    link += '/ohotBath';
+    window.location.href = link
+  })
+  const cafeNodeName = document.getElementById("cafeNodeName");
+  cafeNodeName.addEventListener("click", () => {
+    let link = window.location.href;
+    link += '/cafe';
+    window.location.href = link
+  })
+}
+
+
+if (window.location.href.includes('staff')) {
+  var allAmounts = document.querySelectorAll('.amount');
+  allAmounts.forEach(amount => {
+    var textValue = amount.textContent;
+    var matches = textValue.match(/(\d+)/);
+    var lastDigit = parseInt(matches[0]) % 10;
+    switch (lastDigit) {
+      case 1:
+        amount.textContent = `${matches[0]} товар`;
+        break;
+      case 2:
+        amount.textContent = `${matches[0]} товара`;
+        break;
+      case 3:
+        amount.textContent = `${matches[0]} товара`;
+        break;
+      case 4:
+        amount.textContent = `${matches[0]} товара`;
+        break;
+      default:
+        amount.textContent = `${matches[0]} товаров`;
+        break;
+    }
+
+
+    if (textValue.includes('11') || textValue.includes('12') || textValue.includes('13') || textValue.includes('14')) {
+      amount.textContent = textValue.replace('товар', 'товаров')
+    }
+  })
+}
+
+if (window.location.href.includes('bathroom')) {
+  let header = document.querySelector('.bathroom-header').textContent;
+  let bathName = header.replace('Станция ', '');
+  closeUnrelevantFeedbacks(bathName);
+}
+
+function closeUnrelevantFeedbacks(name) {
+  let feedbackList = document.querySelector('.feedback-list');
+  let allFeedbacks = feedbackList.querySelectorAll('.feedback-item');
+  allFeedbacks.forEach(item => {
+    let itemName = item.querySelector('.feedback-item__caption').textContent;
+    if (itemName != name) {
+      item.classList.add('js--hidden');
+    } else {
+      item.classList.add('js--show');
+    }
+    countAverageScoreAndAmountOfFeedbacks()
+  })
+  createStars();
+}
+
+function countAverageScoreAndAmountOfFeedbacks() {
+  let feedbackList = document.querySelector('.feedback-list');
+  let allFeedbacks = feedbackList.querySelectorAll('.feedback-item');
+  let totalScore = 0;
+  let totalLength = 0;
+  allFeedbacks.forEach(item => {
+    if (item.classList.contains('js--show')) {
+      totalLength++;
+      let rating = parseInt(item.querySelector('.amount').textContent);
+      totalScore += rating;
+    }
+  });
+  let averageScore = totalScore / totalLength;
+  averageScore = Math.round(averageScore * 10) / 10
+  let feedbackScore = document.querySelector(".feedback-score");
+  let feedbackCounter = document.querySelector('.feedback-amount');
+  feedbackScore.textContent = `${averageScore}`;
+  var lastDigit = totalLength % 10;
+  switch (lastDigit) {
+    case 1:
+      feedbackCounter.textContent = `(${totalLength} отзыв)`;
+      break;
+    case 2:
+      feedbackCounter.textContent = `(${totalLength} отзыва)`;
+      break;
+    case 3:
+      feedbackCounter.textContent = `(${totalLength} отзыва)`;
+      break;
+    case 4:
+      feedbackCounter.textContent = `(${totalLength} отзыва)`;
+      break;
+    default:
+      feedbackCounter.textContent = `(${totalLength} отзывов)`;
+      break;
+  }
+  let textValue = feedbackCounter.textContent
+  if (textValue.includes('11') || textValue.includes('12') || textValue.includes('13') || textValue.includes('14')) {
+    feedbackCounter.textContent = textValue.replace('отзыв', 'отзывов')
+  }
+
+  let globalScore = document.querySelector('.bathroom-rating__score');
+  globalScore.textContent = averageScore;
+  let globalAmount = document.querySelector('.bathroom-rating__amount');
+  globalAmount.textContent = feedbackCounter.textContent;
+}
+
+function createStars() {
+
+  let starCounter = document.getElementById('starsCounter');
+  let globalScore = document.querySelector('.bathroom-rating__score');
+  let averageScore = globalScore.textContent;
+  averageScore = Math.round(averageScore);
+  for (let counter = 1; counter <= averageScore; counter++) {
+    let useElement = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+    useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'href', '#stars-full-star');
+    starCounter.appendChild(useElement);
+  }
+  for (let counter = 1; counter <= 5 - parseInt(averageScore); counter++) {
+    let useElement = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+    useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'href', '#stars-empty-star');
+    starCounter.appendChild(useElement);
+  }
+}
+
+
+if (window.location.href.includes('add-to-cart')) {
+  const newHeader = localStorage.getItem('clickedHeader');
+  console.log(newHeader);
+  const addedModalNew = document.querySelector('.modal-container');
+  console.log(addedModalNew);
+  const headerName = addedModalNew.querySelector('.modal-container__caption');
+  headerName.textContent = newHeader;
+  addedModalNew.classList.remove('js--transformed');
+  setTimeout(() => {
+    addedModalNew.classList.add('js--transformed');
+  }, 1500)
+}
+
+if (window.location.href.includes('services')) {
+  var buttons = document.querySelectorAll('.service-book');
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      button.classList.add('buttonClicked')
+    })
+  })
+  var cards = document.querySelectorAll('.container-card');
+  cards.forEach(card => {
+    if (card.querySelector('.service-book').classList.contains('buttonClicked')) {
+      localStorage.setItem('clickedHeader', card.querySelector('.card-name').textContent);
+      const newHeader = localStorage.getItem('clickedHeader');
+      console.log(newHeader);
+    }
+  })
+}
+
+let bookCounter = document.querySelector('.book-counter').textContent;
+if (localStorage.getObj("bookedServices")) {
+  const array = localStorage.getObj("bookedServices").length;
+
+  bookCounter = parseInt(bookCounter) + array;
+  document.querySelector('.book-counter').textContent = bookCounter;
+}

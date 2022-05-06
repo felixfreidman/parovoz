@@ -47,18 +47,21 @@ $address = get_field("address", "option");
             <div class="footer-container__header">Адреса</div>
             <div class="footer-adress"><?=$address?></div>
         </div>
-        <a href="<?=home_url();?>/cart" class="footer-button">Забронировать</a>
+        <!-- <a href="<?=home_url();?>/cart" class="footer-button">Забронировать</a> -->
         <div class="footer-socials">
-            <a class="social" href="https://instagram.com/<?=$instagram?>"> <img
-                    src="<?php echo get_template_directory_uri() . '/assets/images/content/instagram.svg'?>"" alt="
-                    instgram" /></a>
-            <a class="social" href="https://vk.com/<?=$vk?>"> <img
-                    src="<?php echo get_template_directory_uri() . '/assets/images/content/vk.svg'?>"" alt=" vk" />
-            </a>
-            <a class="social" href="https://whatapp.com/<?=$whatapp?>"> <img
-                    src="<?php echo get_template_directory_uri() . '/assets/images/content/whatApp.svg'?>"" alt="
-                    whatapp" />
-            </a>
+            <div class="footer-header">Социальные сети</div>
+            <div class="row">
+                <a class="social" href="https://instagram.com/<?=$instagram?>"> <img
+                        src="<?php echo get_template_directory_uri() . '/assets/images/content/instagram.svg'?>"" alt="
+                        instgram" /></a>
+                <a class="social" href="https://vk.com/<?=$vk?>"> <img
+                        src="<?php echo get_template_directory_uri() . '/assets/images/content/vk.svg'?>"" alt=" vk" />
+                </a>
+                <a class="social" href="https://whatapp.com/<?=$whatapp?>"> <img
+                        src="<?php echo get_template_directory_uri() . '/assets/images/content/whatApp.svg'?>"" alt="
+                        whatapp" />
+                </a>
+            </div>
         </div>
     </div>
 </footer>
@@ -93,10 +96,15 @@ $address = get_field("address", "option");
         <button class="form-button" type="submit">Отправить</button>
     </form>
 </div>
+<div class="modal-container js--transformed" id='AddedModal'>
+    <div class="modal-container__header">Добавлено в бронирование</div>
+    <div class="modal-container__caption"></div>
+</div>
 <script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/jquery.min.js'?>"></script>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/plugins.min.js'?>"></script>
-<script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/main.min.js'?>"></script>
+<script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/main.js'?>"></script>
+
 
 </body>
 

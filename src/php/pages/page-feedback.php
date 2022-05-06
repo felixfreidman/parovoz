@@ -3,9 +3,10 @@
 get_header();
 $reviews = array(
     'post_type' => 'reviews',
-    'posts_per_page' => -1,
+    'posts_per_page' => 15,
     'orderby' => 'date',
-    'order' => 'ASC',
+    'order' => 'DESC',
+    'paged' => $currentPage,
 );
 
 $loop_reviews = new WP_Query($reviews); ?>
@@ -46,7 +47,12 @@ $loop_reviews = new WP_Query($reviews); ?>
                 <div class="slider-rating" id="slider"></div>
             </div><button class="controls-section__button js--hidden" type="reset">Сбросить фильтр</button>
         </form>
-        <div class="add-feedback test">Оставить отзыв</div>
+        <a class="book-button service-book add-feedback test">Оставить отзыв
+            <div class="plus-container">
+                <span class="line"></span>
+                <span class="line-vertical"></span>
+            </div>
+        </a>
     </div>
     <div class="feedback-container">
         <div class="feedback-list">
@@ -56,12 +62,16 @@ $loop_reviews = new WP_Query($reviews); ?>
                 endwhile;
                 wp_reset_postdata();
             ?>
-
-            <!-- <div class="articles-pagination"> <a class="page-number page-number--active">1</a><a
-                    class="page-number">2</a><a class="page-number">3</a><a class="page-number">4</a></div> -->
-            <!-- New Post Form -->
-            
         </div>
+
+    </div>
+    <div class="articles-pagination">
+        <?php 
+            echo paginate_links( array(
+                'total' => $loop_reviews->max_num_pages
+            ) );
+            wp_reset_postdata();
+            ?>
     </div>
 </main>
 <?php

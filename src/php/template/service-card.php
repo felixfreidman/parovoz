@@ -5,9 +5,11 @@ $service_section_bg = get_field("service_section_bg");
 ?>
 <div data-href="<?=get_post_permalink();?>" class="container-card">
 
-    <div class="card-image" style="background: url(<?=$service_section_bg?>)"> </div>
+    <div class="card-image" style="background: url(<?=$service_section_bg?>) center"> </div>
     <div class="card-container">
-        <div class="card-name">Авторское парение</div>
+        <div class="card-name">
+            <? echo get_the_title($post->ID);?>
+        </div>
         <div class="card-time">
             <div class="card-time__image"> <img
                     src="<?php echo get_template_directory_uri() . '/assets/images/content/services_time.svg'?>" />
@@ -49,7 +51,12 @@ $service_section_bg = get_field("service_section_bg");
                 <div class="prive-currency">₽</div>
             </div>
             <?php $add_to_cart = do_shortcode('[add_to_cart_url id="'.$post->ID.'"]');?>
-            <a href="<?=$add_to_cart;?>" class="service-book">Забронировать</a>
+            <a href="<?=$add_to_cart;?>" class="service-book service-special-book">Забронировать
+                <div class="plus-container">
+                    <span class="line"></span>
+                    <span class="line-vertical"></span>
+                </div>
+            </a>
 
         </div>
     </div>
